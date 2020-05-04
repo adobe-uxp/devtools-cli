@@ -1,0 +1,10 @@
+{
+  "modules" : [
+    { "name": "inspector_main", "type": "autostart" },
+    { "name": "mobile_throttling"},
+    { "name": "browser_debugger" },
+    { "name": "elements" }
+  ],
+  "extends": "shell",
+  "has_html": true
+}

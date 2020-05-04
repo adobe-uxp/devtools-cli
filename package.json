@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "workspaces": {
+    "packages": ["packages/*", "packages/uxp-templates-pack/*"],
+    "nohoist": ["**/chrome-devtools-frontend", "**/chrome-devtools-frontend/**", "**/electron-squirrel-startup", "**/electron-squirrel-startup/**", "**/electron", "**/electron/**", "**/@electron-forge/cli", "**/@electron-forge/cli/**"]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix packages/**/*.js ",
+    "postinstall": "node scripts/installScript.js",
+    "cleanup": "node scripts/cleanup.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
+  }
+}

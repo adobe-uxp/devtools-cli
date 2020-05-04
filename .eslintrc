@@ -1,0 +1,14 @@
+{
+    "extends": ["airbnb-base"],
+    "rules": {
+        "indent": ["error", 4],
+        "no-underscore-dangle": "off",
+        "quotes": "off",
+        "no-console": "off",
+        "no-plusplus": "off",
+        "max-classes-per-file": ["error", 6],
+        "no-restricted-syntax": ["error", "WithStatement", "LabeledStatement"],
+        "array-callback-return": "off",
+        "arrow-body-style": "off"
+    }
+}

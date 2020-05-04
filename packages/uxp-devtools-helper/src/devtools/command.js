@@ -1,0 +1,50 @@
+/*
+Copyright 2020 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+const path = require("path");
+const fs = require("fs-extra");
+const process = require('process');
+
+const args = process.argv.slice(2);
+
+const isEnable = args[0] === "enable";
+const baseDirPath = args[1];
+const relativeSettingsPath = args[2];
+
+function validateParams() {
+    if (baseDirPath.length > 0 && relativeSettingsPath.length > 0) {
+        const baseDirExists = fs.existsSync(baseDirPath);
+        if (baseDirExists) {
+            return;
+        }
+    }
+    throw new Error(`Devtools Command received invalid params : ${args}`);
+}
+
+function setUxpDeveloperMode() {
+    try {
+        validateParams();
+        const settingsFilePath = path.resolve(baseDirPath, relativeSettingsPath);
+        const settingsDir = path.dirname(settingsFilePath);
+        fs.ensureDirSync(settingsDir);
+
+        // write the settings config to the file.
+        const configData = {
+            developer: !!isEnable,
+        };
+        fs.writeFileSync(settingsFilePath, JSON.stringify(configData, null, 4), "utf8");
+    } catch (err) {
+        process.exitCode = 1;
+        process.exit();
+    }
+}
+
+setUxpDeveloperMode();

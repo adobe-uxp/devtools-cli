@@ -1,0 +1,8 @@
+.DS_Store
+dist
+node_modules
+.cache
+yarn-error.log
+.vscode/
+build/
+out/
