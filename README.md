@@ -19,8 +19,14 @@ UXP CLI is a standard tooling for Adobe UXP plugin development. Its a full syste
 
 ### Installation through npm (Work in progress)
 
-> Note: During prerelease, please install from Github directly by cloning or downloading the repo, and running
-> `npm install` (or `yarn install`)
+> Note: During prerelease, follow the these instractions instead of the regular steps:
+>
+> * Clone this repository
+> * `cd` into the folder
+> * `yarn install` (Yarn is required)
+>
+> If you don't have `yarn` installed, you can install it with `npm -g install yarn`.
+>
 
     npm install @adobe/uxp-devtools-cli
 
