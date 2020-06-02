@@ -14,10 +14,10 @@
 function handleAppsListCommand() {
     this.uxp.setMode('client');
     const prom = this.uxp.devToolsMgr.getAppsList();
-    prom.then((appsList) => {
+    return prom.then((appsList) => {
         if (!appsList || !appsList.length) {
             console.warn("No host applications supporting the UXP Developer Tools were found. Please make sure that you have launched an application that supports UXP Developer Tools and try again.");
-            return;
+            return null;
         }
         const formattedList = appsList.map((app) => ({
             ID: app.appId,
@@ -25,8 +25,8 @@ function handleAppsListCommand() {
             Name: app.name,
         }));
         console.table(formattedList);
+        return formattedList;
     });
-    return prom;
 }
 
 const appsListCommand = {

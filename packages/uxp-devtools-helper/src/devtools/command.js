@@ -16,8 +16,10 @@ const process = require('process');
 const args = process.argv.slice(2);
 
 const isEnable = args[0] === "enable";
-const baseDirPath = args[1];
-const relativeSettingsPath = args[2];
+const dirs =  args[1].split(";;");
+
+const baseDirPath = dirs[0];
+const relativeSettingsPath = dirs[1];
 
 function validateParams() {
     if (baseDirPath.length > 0 && relativeSettingsPath.length > 0) {
@@ -30,21 +32,16 @@ function validateParams() {
 }
 
 function setUxpDeveloperMode() {
-    try {
-        validateParams();
-        const settingsFilePath = path.resolve(baseDirPath, relativeSettingsPath);
-        const settingsDir = path.dirname(settingsFilePath);
-        fs.ensureDirSync(settingsDir);
+    validateParams();
+    const settingsFilePath = path.resolve(baseDirPath, relativeSettingsPath);
+    const settingsDir = path.dirname(settingsFilePath);
+    fs.ensureDirSync(settingsDir);
 
-        // write the settings config to the file.
-        const configData = {
-            developer: !!isEnable,
-        };
-        fs.writeFileSync(settingsFilePath, JSON.stringify(configData, null, 4), "utf8");
-    } catch (err) {
-        process.exitCode = 1;
-        process.exit();
-    }
+    // write the settings config to the file.
+    const configData = {
+        developer: !!isEnable,
+    };
+    fs.writeFileSync(settingsFilePath, JSON.stringify(configData, null, 4), "utf8");
 }
 
 setUxpDeveloperMode();

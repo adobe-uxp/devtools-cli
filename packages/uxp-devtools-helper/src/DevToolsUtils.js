@@ -13,12 +13,11 @@
  */
 
 const path = require("path");
-const os = require("os");
 const fs = require("fs");
 
 function getUxpDeveloperConfigFilePath() {
     let baseFolder = "";
-    if (os.platform === "win32") {
+    if (process.platform === "win32") {
         baseFolder = process.env.CommonProgramFiles;
     } else {
         baseFolder = `/Library/Application Support`;
@@ -52,7 +51,9 @@ function waitForKey(keyNames) {
     }
 
     process.stdin.on('keypress', (c, k) => {
-        process.stdin.setRawMode(false);
+        if (process.stdin.isTTY) {
+            process.stdin.setRawMode(false);
+        }
         rl.close();
         if (keyNames.includes(k.name)) {
             deferred.resolve(true);
@@ -84,7 +85,9 @@ function runDevToolsCommand(enable) {
     const action = enable ? "enable" : "disable";
 
     const configParams = getUxpDeveloperConfigFilePath();
-    const fullCommand = `node "${devToolCommandPath}" ${action} "${configParams.baseFolder}" "${configParams.relativePath}"`;
+    const dirArgsList = [configParams.baseFolder,  configParams.relativePath];
+    const dirArgs = dirArgsList.join(";;");
+    const fullCommand = `node "${devToolCommandPath}" ${action} "${dirArgs}"`;
 
     const options = {
         name: "Adobe UXP Devtools CLI",

@@ -27,9 +27,16 @@ function runCDTSetup() {
 function runElectronPackage() {
     const inspectBaseFolder = path.resolve(__dirname, "../");
     const command = "yarn package";
-    execSync(command, null, {
-        cwd: inspectBaseFolder,
-    });
+    try {
+        const result = execSync(command, null, {
+            cwd: inspectBaseFolder,
+            stdio: 'inherit'
+        });
+        console.log(result.toString());
+    }
+    catch (err) {
+        console.log("Uxp inspect package build failed with Error: " + err.stderr);
+    }
 }
 
 runCDTSetup();

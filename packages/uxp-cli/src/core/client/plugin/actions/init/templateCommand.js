@@ -68,7 +68,17 @@ function install(root, dependencies) {
                 console.log(chalk.yeloow('Falling back to the local Yarn cache.'));
                 console.log();
             }
-            const child = spawn(command, args, { stdio: 'inherit' });
+
+            /* As per https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
+             * child_process.spawn() runs without shell (by default). So to get all the shell commands and
+             * any executable files available in spawn on Windows, like in your regular shell, set shell: true.
+             */
+            const options = {
+                stdio: 'inherit',
+                shell: process.platform === 'win32'
+            }
+
+            const child = spawn(command, args, options);
             child.on('close', (code) => {
                 if (code !== 0) {
                     // eslint-disable-next-line prefer-promise-reject-errors

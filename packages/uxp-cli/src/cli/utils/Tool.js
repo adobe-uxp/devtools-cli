@@ -43,18 +43,28 @@ class Tool {
                     const prom = new Promise((resolve) => {
                         resolve(handler.call(toolThiz, ...handlerArgs));
                     });
-                    return prom.then((res) => ({
-                        result: 0,
-                        data: res,
-                    })).catch((err) => {
+                    return prom.then((res) => {
+                        const commandResult = {
+                            data: res,
+                            success: true,
+                        };
+                        if (process.env.NODE_ENV === 'test') {
+                            console.log(JSON.stringify(commandResult));
+                        }
+                        return commandResult;
+                    }).catch((err) => {
                         // eslint-disable-next-line no-underscore-dangle
                         console.error(`Command '${toolThiz._currentCommand}' failed. ${err}`);
                         // crajTODO - check if tests gets affected by setting this.
                         process.exitCode = 1;
-                        return {
-                            result: 1,
+                        const commandResult = {
                             error: err,
+                            success: false,
                         };
+                        if (process.env.NODE_ENV === 'test') {
+                            console.log(JSON.stringify(commandResult));
+                        }
+                        return commandResult;
                     });
                 };
             };

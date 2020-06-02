@@ -6,3 +6,8 @@ yarn-error.log
 .vscode/
 build/
 out/
+Jenkinsfile
+build.js
+scripts/adobe_internal/commands/demoAppSetup.js
+scripts/adobe_internal/demoAppConfig.js
+scripts/adobe_internal/npmrcUtil.js

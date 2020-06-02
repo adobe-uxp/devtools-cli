@@ -19,20 +19,20 @@ function getYarnGlobalBinFolder() {
     return binPath.toString().trim();
 }
 
-function getUxpSymLinkLocation() {
+function getUxpGlobalLocation() {
     const mainScriptFile = path.resolve(__dirname, "../packages/uxp-cli/src/uxp.js");
-    const npmBinPath = getYarnGlobalBinFolder();
-    if (!npmBinPath) {
-        throw new Error("Failed to install the cli scripts in npm bin folder");
+    const yarnBinPath = getYarnGlobalBinFolder();
+    if (!yarnBinPath) {
+        throw new Error("Failed to install the cli scripts in yarn bin folder");
     }
-    const symPath = path.resolve(npmBinPath, "uxp");
+    const uxpBinPath = path.resolve(yarnBinPath, "uxp");
     return {
         mainScriptFile,
-        symPath,
+        uxpBinPath,
     };
 }
 
 module.exports = {
-    getUxpSymLinkLocation,
+    getUxpGlobalLocation,
     getYarnGlobalBinFolder,
 };

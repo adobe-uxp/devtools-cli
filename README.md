@@ -17,10 +17,34 @@ UXP CLI is a standard tooling for Adobe UXP plugin development. Its a full syste
 
 ## Getting Started
 
-### Installation through npm (Work in progress)
 
-> Note: During prerelease, please install from Github directly by cloning or downloading the repo, and running
-> `npm install` (or `yarn install`)
+### Software requirement
+
+- Yarn version >= 1.5
+- Node version >= 10.16
+
+Devtools helper uses N-api v4. Node-version and n-api compatible matrix  is available [here](https://nodejs.org/api/n-api.html#n_api_n_api_version_matrix)
+
+### Setup
+
+#### One time setup of the Yarn package downloader
+    npm install -g yarn
+
+You need to set the `yarn global bin` path to the PATH environment variable to access `uxp` command directly from terminal. 
+
+##### Mac
+
+You can run this command on terminal to add yarn global bin path.
+
+    export PATH="$(yarn global bin):$PATH"
+    
+
+##### Windows
+
+You can add yarn global bin path to system variables by following the steps given [here](https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v%3Doffice.14)).
+
+
+### Installation through npm (Work in progress)
 
     npm install @adobe/uxp-devtools-cli
 
@@ -28,6 +52,28 @@ or
 
     yarn add @adobe/uxp-devtools-cli
   
+
+### Quick guide for getting started
+
+For getting started with CLI, You need to setup UXP Developer tools in your machine using below steps.
+- Note that on Windows you need to run these commands in `PowerShell` or `Command Prompt`.
+
+    - Clone this repository to your local machine/ Extract the zip
+    - Cd into uxp-devtools-cli directory
+    - Run yarn install
+    
+After a successful yarn install, First, start a cli service ( Make sure Application is running ) 
+
+```$ uxp service start```
+
+In another terminal instance - run plugin commands for to load plugin 
+
+```$ uxp plugin load```
+
+To debug ( Note: the plugin needs to be loaded first - via above load commnad for debug to work )
+
+```$ uxp plugin debug```
+
 
 ### Help Commands
 
@@ -159,8 +205,6 @@ For a plugin you can get the log path using the below command.
     --app: List of apps for which you want to get the log path. If you don't provide this argument the cli will list the log path for all the apps in which the plugin is loaded.
 
 - Note that plugin needs to be loaded with `plugin load` commands first.
-
-
 
 
 ### Contributing

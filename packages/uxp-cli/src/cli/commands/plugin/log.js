@@ -11,8 +11,13 @@
  *
  */
 
+const process = require('process');
 
 function handlePluginLogPathCommand(args) {
+    if (process.platform === 'win32') {
+        console.error('log path command is not supported on Windows.')
+        return;
+    }
     const apps = args.apps ? args.apps.split(" ") : [];
     const params = {
         apps,

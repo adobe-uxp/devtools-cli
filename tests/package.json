@@ -1,0 +1,16 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@git.corp.adobe.com:torq/uxp-devtools-cli.git",
+    "directory": "tests"
+  },
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "jest": "^26.0.1"
+  }
+}

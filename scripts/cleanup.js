@@ -12,13 +12,13 @@
  */
 
 const fs = require("fs");
-const { getUxpSymLinkLocation } = require("./common");
+const { getUxpGlobalLocation } = require("./common");
 
 function cleanUpUxpSymLink() {
-    const { symPath } = getUxpSymLinkLocation();
-    if (fs.existsSync(symPath)) {
-        console.log(`Deleting the sym-link to uxp main script file ${symPath}`);
-        fs.unlinkSync(symPath);
+    const { uxpBinPath } = getUxpGlobalLocation();
+    if (fs.existsSync(uxpBinPath)) {
+        console.log(`Deleting the sym-link to uxp main script file ${uxpBinPath}`);
+        fs.unlinkSync(uxpBinPath);
     }
 }
 
