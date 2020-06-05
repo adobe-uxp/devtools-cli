@@ -64,6 +64,22 @@ After a successful yarn install, First, start a cli service ( Make sure Applicat
 
 ```$ uxp service start```
 
+> **IMPORTANT**
+>
+> For macOS, there is a bug where `uxp service start` won't work if devtools hasn't been enabled before. If you can a permissions error about a path, use the following steps to work around it manually.
+>
+> * Navigate to `/Library/Application Support/Adobe/UXP/Developer`
+> * Create a new file called `settings.json` (this will require `sudo`). I use `vi`, but any editor will do.
+> 
+> Inside this file, put:
+> 
+> ```
+> {
+>         "developer": true
+> }
+> ```
+
+
 In another terminal instance - run plugin commands for to load plugin 
 
 ```$ uxp plugin load```
