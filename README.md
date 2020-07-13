@@ -45,15 +45,6 @@ You can run this command on terminal to add yarn global bin path.
 You can add yarn global bin path to system variables by following the steps given [here](https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v%3Doffice.14)).
 
 
-### Installation through npm (Work in progress)
-
-    npm install @adobe/uxp-devtools-cli
-
-or
-
-    yarn add @adobe/uxp-devtools-cli
-  
-
 ### Quick guide for getting started
 
 For getting started with CLI, You need to setup UXP Developer tools in your machine using below steps.
@@ -61,7 +52,11 @@ For getting started with CLI, You need to setup UXP Developer tools in your mach
 
     - Clone this repository to your local machine/ Extract the zip
     - Cd into uxp-devtools-cli directory
-    - Run yarn install
+    - Run `yarn install`
+    
+If you've not set this up before, you will need to enable developer tools to run (this will ask for elevated privileges):
+
+```$ uxp devtools enable```
     
 After a successful yarn install, First, start a cli service ( Make sure Application is running ) 
 
