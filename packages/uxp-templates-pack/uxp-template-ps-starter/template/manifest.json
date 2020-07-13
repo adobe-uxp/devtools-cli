@@ -1,28 +1,52 @@
 {
+
     "id": "com.adobe.ps.starter",
     "name": "Adobe Photoshop UXP plugin starter template",
     "version": "1.0.0",
     "main": "index.html",
-    "host": [
-        {
-        "app": "PS",
-        "minVersion": "21.0.0"
-    }],
-    "uiEntrypoints": [
+    "manifestVersion": 4,
+    "entrypoints": [
         {
             "type": "panel",
-            "panelId": "vanilla",
-            "panelInfo": {
-                "title": {"default": "Vanilla"},
-                "minimumSize": {"width": 230, "height": 200},
-                "maximumSize": {"width": 2000, "height": 2000},
-                "preferredDockedSize": {"width": 230, "height": 300},
-                "preferredFloatingSize": {"width": 230, "height": 300},
-                "flyoutMenu" : [
-                    {"title": {"default": "Show Alert"}, "command": "flyoutMenuShowAlert"}
-                ]
-            }
+            "id": "vanilla",
+            "label": {
+                "default": "My Network panel",
+                "en-US": "My Network panel",
+                "es-ES": "My Network panel"
+            },
+            "minimumSize": {
+                "width": 120,
+                "height": 140
+            },
+            "maximumSize": {
+                "width": 1200,
+                "height": 10000
+            },
+            "preferredDockedSize": {
+                "width": 150,
+                "height": 200
+            },
+            "preferredFloatingSize": {
+                "width": 300,
+                "height": 200
+            },
+            "commands": [
+                {
+                    "id": "show_alert",
+                    "label": {
+                        "default": "Show Alert",
+                        "en-US": "Show Alert (US)",
+                        "es-ES": "Show Alert (ES)"
+                    }
+                }
+            ]
         }
     ],
-    "runOnStartup": true
+    "host": [
+        {
+            "app":  "PS",
+            "minVersion": "21.0.0",
+            "maxVersion": "31.1.1"
+        }
+    ]
 }

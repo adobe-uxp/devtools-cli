@@ -8,9 +8,10 @@ function showLayerNames() {
 
 document.getElementById("btnPopulate").addEventListener("click", showLayerNames);
 
-function flyoutMenuShowAlert() {
-  const psCore = require('photoshop').core
-  psCore.showAlert({ message: 'Hi!' })
+function flyoutMenuShowAlert(commandId) {
+    const psCore = require('photoshop').core;
+    psCore.showAlert({ message: 'Hi!'+commandId });
 }
 
-window['flyoutMenuShowAlert'] = flyoutMenuShowAlert
+// Hook up a listener for uxpcommands (entrypoints)
+document.addEventListener("uxpcommand", (ev) => flyoutMenuShowAlert(ev.commandId));

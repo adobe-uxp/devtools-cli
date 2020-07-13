@@ -27,7 +27,9 @@
 function handlePluginReloadCommand() {
     const prom = this.uxp.pluginMgr.reloadPlugin();
     return prom.then((res) => {
-        console.log("Plugin Reload successfull.");
+        if (res && !res.breakOnStart) {
+            console.log("Plugin Reload successfull.");
+        }
         return res;
     });
 }

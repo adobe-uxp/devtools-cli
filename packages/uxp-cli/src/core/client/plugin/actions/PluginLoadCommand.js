@@ -28,7 +28,7 @@ function validateManifest(manifestPath) {
     return report.manifest;
 }
 
-function createLoadMessage(pluginFolder) {
+function createLoadMessage(pluginFolder, breakOnStart) {
     const msg = {
         command: "Plugin",
         action: "load",
@@ -38,6 +38,7 @@ function createLoadMessage(pluginFolder) {
                 path: pluginFolder,
             },
         },
+        breakOnStart,
     };
     return msg;
 }
@@ -76,7 +77,7 @@ class PluginLoadCommand extends PluginBaseCommand {
             throw new Error("Load command didn't find any of the currently running apps applicable for loading this plugin. Make sure your target application is running and try again.");
         }
         const pluginFolder = path.dirname(this.params.manifest);
-        const loadJsonMsg = createLoadMessage(pluginFolder);
+        const loadJsonMsg = createLoadMessage(pluginFolder, this.params.breakOnStart);
         console.log(`Sending "Load Plugin" command to apps ${JSON.stringify(applicableAppsForLoading)}`);
         const loadReqProm = this.sendMessageToAppsWithReply(applicableAppsForLoading, loadJsonMsg);
         return loadReqProm.then((results) => {
@@ -98,8 +99,7 @@ class PluginLoadCommand extends PluginBaseCommand {
                 }
                 throw new Error("Plugin Load command failed. Failed to load in any of the connected apps");
             }
-            this._handlePluginLoadSuccess(successfulLoads);
-            return true;
+            return this._handlePluginLoadSuccess(successfulLoads);
         });
     }
 
@@ -108,6 +108,14 @@ class PluginLoadCommand extends PluginBaseCommand {
         // to a uxprc file so as to persist the state for later commands ( like plugin debug/log et al)
         this.pm._createPluginSession(pluginLoadResults);
         this.pm._saveCurrentPluginSession();
+        if (this.params.breakOnStart) {
+            console.log('The loading of the plugin is blocked. Waiting for a debugger to be launched.');
+            return this.pm.debugPlugin(this.params).then((res) => {
+                console.log("Launched standalone Chrome Developer Tools window.");
+                return res;
+            });
+        }
+        return true;
     }
 }
 

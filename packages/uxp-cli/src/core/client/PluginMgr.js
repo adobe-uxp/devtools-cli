@@ -38,8 +38,8 @@ class PluginMgr {
     }
 
     debugPlugin(params) {
-        const pluginLoadCommand = new PluginDebugCommand(this, params);
-        return pluginLoadCommand.execute();
+        const pluginDebugCommand = new PluginDebugCommand(this, params);
+        return pluginDebugCommand.execute();
     }
 
     reloadPlugin() {

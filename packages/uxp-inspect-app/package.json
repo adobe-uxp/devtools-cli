@@ -1,7 +1,7 @@
 {
   "name": "@adobe/uxp-inspect-app",
   "productName": "Adobe UXP Inspect",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Inspect app for debugging uxp plugins.",
   "main": "src/main.js",
   "scripts": {

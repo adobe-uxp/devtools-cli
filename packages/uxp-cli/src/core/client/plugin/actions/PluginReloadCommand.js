@@ -42,7 +42,26 @@ class PluginReloadCommand extends PluginBaseCommand {
     }
 
     executeCommand() {
-        return this.runCommandOnAllApplicableApps(createReloadMessage);
+        const resultsCallback = this._handlePluginReloadResult.bind(this);
+        return this.runCommandOnAllApplicableApps(createReloadMessage, resultsCallback);
+    }
+
+    breakOnStartEnabled(result) {
+        const { data } = result;
+        return data && data.breakOnStart;
+    }
+
+    _handlePluginReloadResult(results) {
+        if (results.length > 0) {
+            if (this.breakOnStartEnabled(results[0])) {
+                console.log('The loading of the plugin is blocked. Waiting for a debugger to be launched.');
+                return this.pm.debugPlugin(this.params).then((res) => {
+                    console.log("Launched standalone Chrome Developer Tools window.");
+                    return { "breakOnStart" : true, res };
+                });
+            }
+        }
+        return true;
     }
 }
 

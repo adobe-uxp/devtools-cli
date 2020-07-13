@@ -93,6 +93,7 @@ class CliClientController {
         const url = `ws://localhost:${port}/socket/cli`;
         this._callerPromise = createDeferredPromise();
         this._connection.connect(this, url);
+        this._isConnected = true;
         return this._callerPromise.promise;
     }
 

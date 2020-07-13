@@ -147,8 +147,10 @@ class DevToolsHelper {
     }
 
     terminate() {
-        this._devToolsNative.terminate();
-        this._devToolsNative = null;
+        if (this._devToolsNative) {
+            this._devToolsNative.terminate();
+            this._devToolsNative = null;
+        }
     }
 }
 

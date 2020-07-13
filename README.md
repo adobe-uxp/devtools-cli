@@ -22,6 +22,7 @@ UXP CLI is a standard tooling for Adobe UXP plugin development. Its a full syste
 
 - Yarn version >= 1.5
 - Node version >= 10.16
+- Git
 
 Devtools helper uses N-api v4. Node-version and n-api compatible matrix  is available [here](https://nodejs.org/api/n-api.html#n_api_n_api_version_matrix)
 
@@ -44,12 +45,14 @@ You can run this command on terminal to add yarn global bin path.
 You can add yarn global bin path to system variables by following the steps given [here](https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v%3Doffice.14)).
 
 
-### Installation
+### Installation through npm (Work in progress)
 
-Navigate to the root of this project and type:
+    npm install @adobe/uxp-devtools-cli
 
-    yarn install
- 
+or
+
+    yarn add @adobe/uxp-devtools-cli
+  
 
 ### Quick guide for getting started
 
@@ -63,22 +66,6 @@ For getting started with CLI, You need to setup UXP Developer tools in your mach
 After a successful yarn install, First, start a cli service ( Make sure Application is running ) 
 
 ```$ uxp service start```
-
-> **IMPORTANT**
->
-> For macOS, there is a bug where `uxp service start` won't work if devtools hasn't been enabled before. If you can a permissions error about a path, use the following steps to work around it manually.
->
-> * Navigate to `/Library/Application Support/Adobe/UXP/Developer`
-> * Create a new file called `settings.json` (this will require `sudo`). I use `vi`, but any editor will do.
-> 
-> Inside this file, put:
-> 
-> ```
-> {
->         "developer": true
-> }
-> ```
-
 
 In another terminal instance - run plugin commands for to load plugin 
 

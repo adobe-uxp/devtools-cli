@@ -38,7 +38,9 @@ class UxpDevTools {
 
     setMode(mode) {
         const isServer = mode === "service";
-        this._devToolsMgr = new DevToolsMgr(isServer);
+        if (!this._devToolsMgr) {
+            this._devToolsMgr = new DevToolsMgr(isServer);
+        }
     }
 
     get devToolsMgr() {

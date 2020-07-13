@@ -22,20 +22,28 @@ const loadOptions = {
         describe: "Space delimited list of app IDs into which the plugin should be loaded. The supported app IDs can be retrieved using `uxp apps list`. The default action is to load the plugin into all currently running apps specified in the plugin's manifest.",
         demandOption: false,
     },
+    breakOnStart: {
+        describe: "Blocks the plugin until a debugger attaches. If specified, attach is assumed, and a debugger will immediately be spawned. Defaults to false.",
+        demandOption: false,
+    }
 };
 
 function handlePluginLoadCommand(args) {
     const manifestRelPath = args.manifest ? args.manifest : "manifest.json";
     const manifest = path.resolve(manifestRelPath);
     const apps = args.apps ? args.apps.split(" ") : [];
+    const breakOnStart = (args.breakOnStart === "true") ? true : false;
     const params = {
         manifest,
         apps,
+        breakOnStart,
     };
 
     const prom = this.uxp.pluginMgr.loadPlugin(params);
     return prom.then((res) => {
-        this.log('Plugin Loaded Successfully.');
+        if (!breakOnStart) {
+            this.log('Plugin Loaded Successfully.');
+        }
         return res;
     });
 }
