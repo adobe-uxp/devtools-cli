@@ -16,6 +16,31 @@ UXP CLI is a standard tool for rapid Adobe UXP plugin development. UXP CLI provi
 | Illustrator        | Not available yet                                     |
 | XD                 | Not available yet                                     |
 
+**Table of contents**
+
+<!-- npx markdown-toc README.md --maxdepth 3  -->
+
+- [Overview](#overview)
+- [Getting started](#getting-started)
+    * [Software requirements](#software-requirements)
+    * [Installation](#installation)
+        + [Manual installation](#manual-installation)
+        + [Installation via package manager (work in progress)](#installation-via-package-manager-work-in-progress)
+    * [Quick start guide](#quick-start-guide)
+    * [Help commands](#help-commands)
+- [Commands](#commands)
+    * [`apps`](#apps)
+    * [`enable`](#enable)
+    * [`service`](#service)
+    * [`plugin`](#plugin)
+        + [Plugin initialization](#plugin-initialization)
+        + [Loading a plugin into one or more host apps](#loading-a-plugin-into-one-or-more-host-apps)
+        + [Reloading a plugin](#reloading-a-plugin)
+        + [Debugging a plugin](#debugging-a-plugin)
+        + [Plugin logs](#plugin-logs)
+- [Contributing](#contributing)
+- [Licensing](#licensing)
+
 # Getting started
 
 ## Software requirements
@@ -223,10 +248,10 @@ _After you have loaded your plugin once with `uxp plugin load`_, you can get the
 **--app**
 List of apps you want to get the log path for. If you don't provide this argument, the CLI will list the log paths for all the apps in which the plugin has been loaded.
 
-## Contributing
+# Contributing
 
 Contributions are welcome! Read the [Contributing Guide](CONTRIBUTING.md) for more information.
 
-## Licensing
+# Licensing
 
 This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for more information.
