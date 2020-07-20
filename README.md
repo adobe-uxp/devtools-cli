@@ -1,212 +1,232 @@
-## Overview
+# Overview
 
-UXP CLI is a standard tooling for Adobe UXP plugin development. Its a full system to help rapid uxp plugin development, providing:
+UXP CLI is a standard tool for rapid Adobe UXP plugin development. UXP CLI provides the ability to do all of the following from the command line:
 
--   Discover uxp compatible Adobe apps from cli.
--   Load your locally developed plugins in the target Adobe app. Current Support Matrix
+- **Discover** UXP-compatible Adobe apps.
+- **Load** your development plugins in a target app (no symlinks or deep file system spelunking required).
+- **Reload** your currently running plugin instance with new changes (no app restart required).
+- **Launch** a rich DevTools environment for debugging your plugin.
+- **View** your plugin logs.
 
-    | Host App Integrated with UXP   | DevTools Support Added |
-    | ------------- | ------------- |
-    | PhotoShop  | PS June 2020 Release Builds with UXP 3.8.24 or higher |
-    | Illustrator | Not available yet |
-    | XD | Not available yet |
-    
--   Debug your plugin.
--   View your plugin Logs from cli.
--   Reload your currently running plugin instance with new changes.
+**Current host app support matrix**
 
-## Getting Started
+| Host Apps with UXP | DevTools Support Added                                |
+| ------------------ | ----------------------------------------------------- |
+| Photoshop          | PS June 2020 Release Builds with UXP 3.8.24 or higher |
+| Illustrator        | Not available yet                                     |
+| XD                 | Not available yet                                     |
 
+# Getting started
 
-### Software requirement
+## Software requirements
 
 - Yarn version >= 1.5
 - Node version >= 10.16
 - Git
 
-Devtools helper uses N-api v4. Node-version and n-api compatible matrix  is available [here](https://nodejs.org/api/n-api.html#n_api_n_api_version_matrix)
+(Devtools helper uses N-API v4. Node version and N-API compatibility matrix is available [here](https://nodejs.org/api/n-api.html#n_api_n_api_version_matrix).)
 
-### Setup
+## Installation
 
-#### One time setup of the Yarn package downloader
-    npm install -g yarn
+### Manual installation
 
-You need to set the `yarn global bin` path to the PATH environment variable to access `uxp` command directly from terminal. 
-
-##### Mac
-
-You can run this command on terminal to add yarn global bin path.
-
-    export PATH="$(yarn global bin):$PATH"
-    
-
-##### Windows
-
-You can add yarn global bin path to system variables by following the steps given [here](https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v%3Doffice.14)).
-
-
-### Quick guide for getting started
-
-For getting started with CLI, You need to setup UXP Developer tools in your machine using below steps.
 - Note that on Windows you need to run these commands in `PowerShell` or `Command Prompt`.
 
-    - Clone this repository to your local machine/ Extract the zip
-    - Cd into uxp-devtools-cli directory
-    - Run `yarn install`
-    
-If you've not set this up before, you will need to enable developer tools to run (this will ask for elevated privileges):
+#### Yarn setup
 
-```$ uxp devtools enable```
-    
-After a successful yarn install, First, start a cli service ( Make sure Application is running ) 
+Install `yarn` via `npm` on the command line:
 
-```$ uxp service start```
+    npm install -g yarn
 
-In another terminal instance - run plugin commands for to load plugin 
+You need to add the `yarn global bin` path to the `PATH` environment variable to access the `uxp` command directly from the command line. See just below for instructions for your OS.
 
-```$ uxp plugin load```
+**Mac**
 
-To debug ( Note: the plugin needs to be loaded first - via above load commnad for debug to work )
+You can run this command on terminal to add `yarn global bin` to the `PATH`.
 
-```$ uxp plugin debug```
+    export PATH="$(yarn global bin):$PATH"
 
+**Windows**
 
-### Help Commands
+You can add yarn global bin path to system variables by following the steps given [here](<https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/ee537574(v%3Doffice.14)>).
 
-You can run the following commands if you need to list of commands available in cli and to get details of command.
+#### Repo setup
+
+- Either clone this repository to your local machine or download and extract the zip
+- `cd` into the resulting `uxp-devtools-cli` directory
+- Run `yarn install`
+
+### Installation via package manager (work in progress)
+
+    npm install @adobe/uxp-devtools-cli
+
+or
+
+    yarn add @adobe/uxp-devtools-cli
+
+## Quick start guide
+
+First, make sure the target application is running.
+
+Then you can start working with the UXP CLI. Be sure you are `cd`'d into your plugin project. (If you don't have a plugin project yet, check out the [Plugin initiatialization](#plugininitialization) section for how to boostrap a plugin from the command line.)
+
+Here is one quick way to get started, which will result in 3 tabs (or command line instances) in your terminal:
+
+1. Tab 1: `uxp service start`
+2. Tab 2: `uxp devtools enable && uxp plugin load && uxp plugin debug`
+3. Tab 3: Choose your own adventure
+
+For tab 3, here are some options:
+
+- Manually run `uxp plugin reload` when you want to reload changes
+- For auto-reload, run `npx nodemon --exec "uxp plugin reload" -e js,jsx,html` [Note: if you have nodemon globally installed, you can omit `npx` from this command]
+
+## Help commands
+
+To get help on the command line, you can run the following commands:
 
     $ uxp help
     // prints details of all the commands available in the cli.
-  
-    $ uxp <command> --help
+
+    $ uxp <command> help
     // prints details of specific command.
 
-### Apps Commands
+# Commands
 
-Get details of apps which support the uxp developer workflow.
+## `apps`
+
+Get details for apps that support UXP:
 
     $ uxp apps list
 
-Output: The output will be something similar to - 
+Output:
 
-ID  Version Name
-PS  21.0.3 Photoshop
-XD  28.0.12 "Adobe XD"
+    ┌─────────┬──────┬──────────┬───────────────────┐
+    │ (index) │  ID  │ Version  │       Name        │
+    ├─────────┼──────┼──────────┼───────────────────┤
+    │    0    │ 'PS' │ '21.0.3' │ 'Adobe Photoshop' │
+    ├─────────┼──────┼──────────┼───────────────────┤
+    │    1    │ 'XD' │ '28.0.12'│ 'Adobe XD'        │
+    └─────────┴──────┴──────────┴───────────────────┘
 
-Note: This first column is app ID that you will use in other dev commands. This ID string is similar to app-id user would specify in manifest.json -> host -> app entry.
+The ID column contains the app ID that you will use in other CLI commands. This ID string is the same as the app ID you will specify in the plugin's `manifest.json` file under _host -> app_.
 
-If you have more than one version of the same app installed ( say, standard & pre-release version ) then you would both the apps listed in the output but each having its own version - for eg:
+If you have more than one version of the same app installed (say, standard & pre-release version), each version will be listed in the output with its own version number. Example:
 
-ID  Version  Name
-PS  21.0.3   Adobe Photoshop
-PS  21.1.0   Adobe Photoshop <- this is pre-release.  
-XD  28.0.12  Adobe XD
+    ┌─────────┬──────┬──────────┬───────────────────┐
+    │ (index) │  ID  │ Version  │       Name        │
+    ├─────────┼──────┼──────────┼───────────────────┤
+    │    0    │ 'PS' │ '21.0.3' │ 'Adobe Photoshop' │
+    ├─────────┼──────┼──────────┼───────────────────┤
+    │    1    │ 'PS' │ '21.1.0' │ 'Adobe Photoshop' │ <- this is pre-release.
+    ├─────────┼──────┼──────────┼───────────────────┤
+    │    2    │ 'XD' │ '28.0.12'│ 'Adobe XD'        │
+    └─────────┴──────┴──────────┴───────────────────┘
 
-#### Enable UXP Developer Tooling
+## `enable`
 
-Before you run any uxp developer commands to load, debug your plugin. You need to first enable the uxp developer tooling. To do that you need to run the following command.
+Before you run any UXP developer commands to load or debug your plugin, you must enable UXP DevTools. To do that, run the following command:
 
     uxp devtools enable
-**Note**:  This command will prompt the user with a OS Credentials Dialog where user need to enter the machine user name and password to allow the command to run.
 
-This is done for security reasons so that some random external scripts can't issue plugin load commands to the apps to load unauthorised plugins etc without user  knowledge.
+**Note**: This command will prompt you with an OS credentials dialog. This is done so that random external scripts can't issue plugin load commands to the apps to load unauthorized plugins without user knowledge.
 
-Disable Uxp devtools
-
-Once you are done with the uxp tooling you need to disable the devtools by running the following command -
+Once you are done with the tooling you can disable UXP DevTools by running the following command:
 
     $ uxp devtools disable
 
-### CLI Service.
+## `service`
 
-The cli and apps communicate ( send commands ) with each other using a web-socket connection.
+The UXP CLI and Adobe apps communicate with each other using a WebSocket connection. For this to happen, you must start the CLI service from the command line. This runs a server at an optionally specified port.
 
-For this you need to start service. This runs a server at the port specified in the above `devtools enable` command.
+Start the service:
 
-Command to start this service is
-
-      $ uxp service start [--port <port>] 
+      $ uxp service start [--port <port>]
 
      Options:
     --port:  The port is  where the service will run, defaults to 14001
 
-Now the cli service is running, you need to open a separate terminal instance to run the actual developer tool commands -
+As seen in the Quick Start above, now that the CLI service is running, you need to open a separate command line instance to run the actual developer tool commands.
 
-You can use the new terminal instance to run other project commands like plugin load, reload, debug etc.
+You can use the new terminal instance to run other project commands for loading/reloading plugins, debugging, and more.
 
+## `plugin`
 
-### Running Plugin Developer Commands
+### Plugin initialization
 
-Assuming you are currently "cd" into your plugin project folder and that the cli service is running.
-
-### Plugin Initialization
-
-You can initialize a directory as an UXP plugin by running the command below.
+You can initialize or bootstrap a directory as a UXP plugin by running this command:
 
     $ uxp plugin init [--template <template-source>]
 
-    --template: The template source for the plugin. If template is not provided the cli prompts you for entering plugin details.
+    --template: The template source for the plugin. If a template is not provided, the CLI will prompt you to enter plugin details.
     A template can be one of:
-      - a default template provide with cli called 'ps-starter'
-      - a local path relative to the current working directory: Eg. file:../my-custom-template
+      - the default template provided with the CLI called 'ps-starter'
+      - a local path relative to the current working directory (e.g. ../my-custom-template)
 
+### Loading a plugin into one or more host apps
 
-#### Load Plugin into host app
-
-you can load this plugin into target app as below
+You can load a plugin into a host app like this this:
 
     $ uxp plugin load [--manifest <path>] [--app <appId ...>]
-     
-    Options:
-    --manifest: Path to plugin's manifest.json file ( that the UXP will finally see ). If the final plugin code is generated in some sub-folder, say, "build" or "dist" folder ( due to your custom internal build scripts and copying your manifest.json to that location ) then you need to provide the path to this final folder.
-     
-    --app: List of apps that you want to load this plugin into. If you don't provide this argument the cli will look into host entry details in manifest.json file and load this plugin into all the supported apps that are currently connected to the cli-service.
-    If more than one version of the app is running - you can limit this app to a specific version by appending the version string to app ID -
-     
-    for eg: if both standard and pre-release versions of PS are running
-     
-    ( assuming apps list command would have produced the following output )
-    ID Name Version
-    PS Photoshop 21.0.3 ( standard released version )
-    PS Photoshop 21.1.0 ( pre-release version of PS )
-     
+
+#### Options
+
+**--manifest**
+
+The path to the plugin's manifest.json file. If the final plugin code is generated in a sub-folder (say, a "build" or "dist" folder), then you need to provide the path to this folder.
+
+**--app**
+A list of apps that you want to load the plugin into. If you don't provide this argument the CLI will look into the host entry details in your `manifest.json` file and load the plugin into all supported apps that are currently connected to the CLI service.
+
+If more than one version of the app is running, you can limit this app to a specific version by appending the version string to the app ID. Let's look at an example:
+
+    $ uxp apps list
+
+    ┌─────────┬──────┬──────────┬───────────────────┐
+    │ (index) │  ID  │ Version  │       Name        │
+    ├─────────┼──────┼──────────┼───────────────────┤
+    │    0    │ 'PS' │ '21.0.3' │ 'Adobe Photoshop' │
+    ├─────────┼──────┼──────────┼───────────────────┤
+    │    1    │ 'PS' │ '21.1.0' │ 'Adobe Photoshop' │
+    └─────────┴──────┴──────────┴───────────────────┘
+
+Load the plugin into both versions of Photoshop:
+
     $ uxp plugin load
-    command would load the plugin into both the apps.
-     
-    if you want to limit the load to only pre-release, you can do the following -
-     
+
+Limit the load to only one verion:
+
     $ uxp plugin load --app PS@21.1.0
 
-### Reloading Plugin
-   From a plugin folder, you can reload the plugin in the host application using the below command. This would reload all the changes done in the plugin except for manifest changes. 
-   
-    $ uxp plugin reload
-    
-- Note that plugin needs to be loaded with above `plugin load` command first.
-    
-#### Debugging Plugin
+### Reloading a plugin
 
-To debug your plugin run following command  
+_After you have loaded your plugin once with `uxp plugin load`_, you can reload the plugin into the host application using this command:
+
+    $ uxp plugin reload
+
+**Note:** This will reload all changes done in the plugin **except for manifest changes**. To reload your manifest, you will need to run `uxp plugin load`.
+
+### Debugging a plugin
+
+_After you have loaded your plugin once with `uxp plugin load`_, you can debug the plugin using this command:
 
     $ uxp plugin debug
 
-- Note that plugin needs to be loaded with above `plugin load` command first.
+### Plugin logs
 
-### Plugin Logs
-
-For a plugin you can get the log path using the below command.
+_After you have loaded your plugin once with `uxp plugin load`_, you can get the log path using this command.
 
     $ uxp plugin log path [--app <appId ...>]
 
-    --app: List of apps for which you want to get the log path. If you don't provide this argument the cli will list the log path for all the apps in which the plugin is loaded.
+#### Options
 
-- Note that plugin needs to be loaded with `plugin load` commands first.
+**--app**
+List of apps you want to get the log path for. If you don't provide this argument, the CLI will list the log paths for all the apps in which the plugin has been loaded.
 
+## Contributing
 
-### Contributing
+Contributions are welcome! Read the [Contributing Guide](CONTRIBUTING.md) for more information.
 
-Contributions are welcomed! Read the [Contributing Guide](CONTRIBUTING.md) for more information.
-
-### Licensing
+## Licensing
 
 This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for more information.
