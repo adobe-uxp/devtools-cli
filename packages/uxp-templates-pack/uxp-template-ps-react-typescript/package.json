@@ -1,0 +1,26 @@
+{
+  "name": "@adobe/uxp-template-ps-react-typescript",
+  "version": "1.0.0",
+  "description": "Starter template for creating Adobe UXP based photoshop plugin.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adobe-uxp/devtools-cli.git",
+    "directory": "packages/uxp-templates-pack"
+  },
+  "uxp": {
+    "manifestPath" : "template/manifest.json",
+    "buildDir" : "dist"
+  },
+  "keywords": [
+    "adobe",
+    "uxp",
+    "ps-react-typescript"
+  ],
+  "author": "Adobe Inc",
+  "license": "Apache-2.0",
+  "files": [
+    "template.json",
+    "template"
+  ]
+}

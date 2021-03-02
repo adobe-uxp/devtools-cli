@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 
 const path = require("path");
 const fs = require("fs-extra");
-const process = require('process');
+const process = require("process");
 
 const args = process.argv.slice(2);
 

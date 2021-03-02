@@ -11,12 +11,12 @@ governing permissions and limitations under the License.
 
 /* eslint-disable max-len */
 /* eslint-disable class-methods-use-this */
-const DevToolNativeLib = require('./DevToolNativeLib');
+const DevToolNativeLib = require("./DevToolNativeLib");
 const { devToolsCommandRunner, isDevToolsEnabled } = require("./DevToolsUtils");
 
 // Note: not including "XD" for now - alpha release.
 const kSupportedUxpHostAppsIds = [
-    "PS", "UXPD"
+    "PS", "UXPS"
 ];
 
 class DevToolHelperNative {
@@ -112,7 +112,8 @@ class DevToolsHelper {
             try {
                 const payload = JSON.parse(data.payload);
                 prom.resolve(payload.port);
-            } catch (err) {
+            }
+            catch (err) {
                 prom.reject(new Error(errorMsg));
             }
             prom.handled = true;
@@ -134,12 +135,12 @@ class DevToolsHelper {
 
     // crajTODO - all devTools enabling commands will be worked out after integrating the
     // the native NodeJS lib.
-    static disableDevTools() {
-        return devToolsCommandRunner(false);
+    static disableDevTools(options) {
+        return devToolsCommandRunner(false, options);
     }
 
-    static enableDevTools() {
-        return devToolsCommandRunner(true);
+    static enableDevTools(options) {
+        return devToolsCommandRunner(true, options);
     }
 
     static isDevToolsEnabled() {

@@ -1,0 +1,556 @@
+
+version 5.210 created 2013/10/18
+
+	(This version was declared GM in October 25th)
+	Name table modifications (Windows nameID4) to BoldCond, BoldCondIt, BoldSemiCond, BoldSemiCondIt so EOT variants load correctly.
+
+
+version 5.205 created 2013/09/30
+
+	(This version was tested by QE but was not pre-released because the DSIG certificate expired)
+	Fixed TT hinting problem in Chedescender and chedescender in Black upright.
+	Corrected the top misalignment of 'five' and 'six' in the italics.
+	Fixed the outline glitches of 'm', 'n' and 'u' in the italics.
+
+
+version 5.200 created 2013/09/09
+
+	Added Indian rupee and Turkish lira.
+	The set of TrueType fonts is now in sync with the OTF fonts.
+	Added 4 new font styles to the family: Condensed +italic, Bold Condensed +italic
+	
+	The family is currently composed of 28 styles, which are available in both OTF and TTF formats, except the faces marked with an asterisk.
+	These 28 styles are divided into the following sets:
+	
+	COMPANY-WIDE set (10 fonts):
+	- Regular
+	- Italic
+	- Bold
+	- Bold Italic
+	- Light
+	- Light Italic
+	- Semicondensed
+	- Semicondensed Italic
+	- Bold Semicondensed
+	- Bold Semicondensed Italic
+	
+	PRODUCT TEAMS set (20 fonts):
+	Company-wide set plus,
+	- Semilight
+	- Semilight Italic
+	- Extra Bold
+	- Extra Bold Italic
+	- Black
+	- Black Italic
+	- Condensed
+	- Condensed Italic
+	- Bold Condensed
+	- Bold Condensed Italic
+	
+	BRANDING TEAM set (28 fonts):
+	Product teams set plus,
+	*- Regular 5pt
+	*- Italic 5pt
+	*- Bold 5pt
+	*- Bold Italic 5pt
+	*- Regular 7pt
+	*- Italic 7pt
+	*- Bold 7pt
+	*- Bold Italic 7pt
+
+	* These fonts are only available in OTF format. They are meant to be used in print materials only.
+
+
+version 5.110 created 2013/05/30
+
+	Vertical metrics are now set in a cross-platform way.
+
+
+version 5.010 created 2013/05/16
+
+	Fixed bug with Pi (U+03A0) and Pe (U+041F) which had a H-shape glyph.
+
+
+version 5.003 created 2012/11/09
+
+	Fixed alignment zone issues in 5pt and 7pt upright fonts.
+	Added chopped-off ampersand.
+
+
+version 5.002 created 2012/10/30
+
+	Dec 12 2011
+	All-new release following a complete re-design of the family.
+	Adobe Clean is now a two-axis design with detached black masters.
+	(optical size axis is gone).
+
+	New alignment zones and stems; improved kerning, new hinting settings, new derivedchars.
+
+	Removed the following glyphs:
+	prescription minusplus revlogicalnot Aringacute AEacute Ibreve IJ Mcircumflex Ncircumflex Obreve Oslashacute Tbar
+	Ymacron DZ DZcaron Dz Dzcaron LJ Lj NJ Nj Eng Yogh Obar aringacute aeacute ibreve ij mcircumflex ncircumflex obreve
+	oslashacute longs tbar ymacron dz dzcaron lj nj eng yogh obar c_h c_k longs_b longs_h longs_i longs_k longs_l
+	longs_t longs_longs longs_longs_i longs_longs_l aringacute.sc aeacute.sc ibreve.sc ij.sc mcircumflex.sc
+	ncircumflex.sc obreve.sc oslashacute.sc tbar.sc ymacron.sc Dz.capsc Dzcaron.capsc Lj.capsc Nj.capsc dz.sc dzcaron.sc
+	lj.sc nj.sc eng.sc yogh.sc obar.sc threequartersemdash underscoredbl onedotenleader twodotenleader exclamdbl franc
+	franc.oldstyle franc.tabular  threequartersemdash.cap franc.sc franc.cap franc.tabularcap  fisheye squareshadow
+	check checkbox checkbox.checked koppa stigma digamma sampi numeralsign lownumeralsign iotasubscript iotaadscript
+	iotaadscript.sc iotaadscript.cap Alphalenis Alphaasper Alphagrave Alphaacute Alphalenisgrave Alphaaspergrave
+	Alphalenisacute Alphaasperacute Alphalenistilde Alphaaspertilde Alphabreve Alphamacron Epsilonlenis Epsilonasper
+	Epsilongrave Epsilonacute Epsilonlenisgrave Epsilonaspergrave Epsilonlenisacute Epsilonasperacute Etalenis Etaasper
+	Etagrave Etaacute Etalenisgrave Etaaspergrave Etalenisacute Etaasperacute Etalenistilde Etaaspertilde Iotalenis
+	Iotaasper Iotagrave Iotaacute Iotalenisgrave Iotaaspergrave Iotalenisacute Iotaasperacute Iotalenistilde
+	Iotaaspertilde Iotabreve Iotamacron Omicronlenis Omicronasper Omicrongrave Omicronacute Omicronlenisgrave
+	Omicronaspergrave Omicronlenisacute Omicronasperacute Rhoasper Upsilonasper Upsilongrave Upsilonacute
+	Upsilonaspergrave Upsilonasperacute Upsilonaspertilde Upsilonbreve Upsilonmacron Omegalenis Omegaasper Omegagrave
+	Omegaacute Omegalenisgrave Omegaaspergrave Omegalenisacute Omegaasperacute Omegalenistilde Omegaaspertilde
+	Alphaiotasub Alphaiotasublenis Alphaiotasubasper Alphaiotasublenisgrave Alphaiotasubaspergrave
+	Alphaiotasublenisacute Alphaiotasubasperacute Alphaiotasublenistilde Alphaiotasubaspertilde Etaiotasub
+	Etaiotasublenis Etaiotasubasper Etaiotasublenisgrave Etaiotasubaspergrave Etaiotasublenisacute Etaiotasubasperacute
+	Etaiotasublenistilde Etaiotasubaspertilde Omegaiotasub Omegaiotasublenis Omegaiotasubasper Omegaiotasublenisgrave
+	Omegaiotasubaspergrave Omegaiotasublenisacute Omegaiotasubasperacute Omegaiotasublenistilde Omegaiotasubaspertilde
+	alphalenis alphaasper alphagrave alphaacute alphalenisgrave alphaaspergrave alphalenisacute alphaasperacute
+	alphalenistilde alphaaspertilde alphabreve alphamacron alphatilde epsilonlenis epsilonasper epsilongrave
+	epsilonacute epsilonlenisgrave epsilonaspergrave epsilonlenisacute epsilonasperacute etalenis etaasper etagrave
+	etaacute etalenisgrave etaaspergrave etalenisacute etaasperacute etalenistilde etaaspertilde etatilde iotalenis
+	iotaasper iotagrave iotaacute iotalenisgrave iotaaspergrave iotalenisacute iotaasperacute iotalenistilde
+	iotaaspertilde iotabreve iotamacron iotatilde iotadieresisgrave iotadieresisacute iotadieresistilde omicronlenis
+	omicronasper omicrongrave omicronacute omicronlenisgrave omicronaspergrave omicronlenisacute omicronasperacute
+	rholenis rhoasper upsilonlenis upsilonasper upsilongrave upsilonacute upsilonlenisgrave upsilonaspergrave
+	upsilonlenisacute upsilonasperacute upsilonlenistilde upsilonaspertilde upsilontilde upsilonbreve upsilonmacron
+	upsilondieresisgrave upsilondieresisacute upsilondieresistilde omegalenis omegaasper omegagrave omegaacute
+	omegalenisgrave omegaaspergrave omegalenisacute omegaasperacute omegalenistilde omegaaspertilde omegatilde
+	alphaiotasub alphaiotasublenis alphaiotasubasper alphaiotasubgrave alphaiotasubacute alphaiotasublenisgrave
+	alphaiotasubaspergrave alphaiotasublenisacute alphaiotasubasperacute alphaiotasublenistilde alphaiotasubaspertilde
+	alphaiotasubtilde etaiotasub etaiotasublenis etaiotasubasper etaiotasubgrave etaiotasubacute etaiotasublenisgrave
+	etaiotasubaspergrave etaiotasublenisacute etaiotasubasperacute etaiotasublenistilde etaiotasubaspertilde
+	etaiotasubtilde omegaiotasub omegaiotasublenis omegaiotasubasper omegaiotasubgrave omegaiotasubacute
+	omegaiotasublenisgrave omegaiotasubaspergrave omegaiotasublenisacute omegaiotasubasperacute omegaiotasublenistilde
+	omegaiotasubaspertilde omegaiotasubtilde lenis psili asper varia oxia lenisgrave aspergrave lenisacute asperacute
+	lenistilde aspertilde perispomeni dialytikagrave dialytikaacute dialytikatilde lenis.cap asper.cap varia.cap
+	oxia.cap lenisgrave.cap aspergrave.cap lenisacute.cap asperacute.cap lenistilde.cap aspertilde.cap alphalenis.sc
+	alphaasper.sc alphagrave.sc alphaacute.sc alphabreve.sc alphamacron.sc alphatilde.sc alphalenisgrave.sc
+	alphaaspergrave.sc alphalenisacute.sc alphaasperacute.sc alphalenistilde.sc alphaaspertilde.sc epsilonlenis.sc
+	epsilonasper.sc epsilongrave.sc epsilonacute.sc epsilonlenisgrave.sc epsilonaspergrave.sc epsilonlenisacute.sc
+	epsilonasperacute.sc etalenis.sc etaasper.sc etagrave.sc etaacute.sc etatilde.sc etalenisgrave.sc etaaspergrave.sc
+	etalenisacute.sc etaasperacute.sc etalenistilde.sc etaaspertilde.sc iotalenis.sc iotaasper.sc iotagrave.sc
+	iotaacute.sc iotabreve.sc iotamacron.sc iotatilde.sc iotadieresisgrave.sc iotadieresisacute.sc iotadieresistilde.sc
+	iotalenisgrave.sc iotaaspergrave.sc iotalenisacute.sc iotaasperacute.sc iotalenistilde.sc iotaaspertilde.sc
+	omicronlenis.sc omicronasper.sc omicrongrave.sc omicronacute.sc omicronlenisgrave.sc omicronaspergrave.sc
+	omicronlenisacute.sc omicronasperacute.sc rholenis.sc rhoasper.sc upsilonlenis.sc upsilonasper.sc upsilongrave.sc
+	upsilonacute.sc upsilonbreve.sc upsilonmacron.sc upsilontilde.sc upsilondieresisgrave.sc upsilondieresisacute.sc
+	upsilondieresistilde.sc upsilonlenisgrave.sc upsilonaspergrave.sc upsilonlenisacute.sc upsilonasperacute.sc
+	upsilonlenistilde.sc upsilonaspertilde.sc omegalenis.sc omegaasper.sc omegagrave.sc omegaacute.sc omegatilde.sc
+	omegalenisgrave.sc omegaaspergrave.sc omegalenisacute.sc omegaasperacute.sc omegalenistilde.sc omegaaspertilde.sc
+	Kavert Chevert kavert chevert kavert.sc chevert.sc Obar.sc Tbar.sc Eng.sc Yogh.sc AEacute.sc Aringacute.sc Ibreve.sc
+	Mcircumflex.sc Ncircumflex.sc Obreve.sc Oslashacute.sc Ymacron.sc IJ.sc DZ.sc DZcaron.sc Dz.sc Dzcaron.sc LJ.sc
+	Lj.sc NJ.sc Nj.sc Alphalenis.sc Alphaasper.sc Alphabreve.sc Alphamacron.sc Alphagrave.sc Alphaacute.sc
+	Alphalenisgrave.sc Alphaaspergrave.sc Alphalenisacute.sc Alphaasperacute.sc Alphalenistilde.sc Alphaaspertilde.sc
+	Epsilonlenis.sc Epsilonasper.sc Epsilongrave.sc Epsilonacute.sc Epsilonlenisgrave.sc Epsilonaspergrave.sc
+	Epsilonlenisacute.sc Epsilonasperacute.sc Etalenis.sc Etaasper.sc Etagrave.sc Etaacute.sc Etalenisgrave.sc
+	Etaaspergrave.sc Etalenisacute.sc Etaasperacute.sc Etalenistilde.sc Etaaspertilde.sc Iotalenis.sc Iotaasper.sc
+	Iotabreve.sc Iotamacron.sc Iotagrave.sc Iotaacute.sc Iotalenisgrave.sc Iotaaspergrave.sc Iotalenisacute.sc
+	Iotaasperacute.sc Iotalenistilde.sc Iotaaspertilde.sc Omicronlenis.sc Omicronasper.sc Omicrongrave.sc
+	Omicronacute.sc Omicronlenisgrave.sc Omicronaspergrave.sc Omicronlenisacute.sc Omicronasperacute.sc Rhoasper.sc
+	Upsilonasper.sc Upsilonbreve.sc Upsilonmacron.sc Upsilongrave.sc Upsilonacute.sc Upsilonaspergrave.sc
+	Upsilonasperacute.sc Upsilonaspertilde.sc Omegalenis.sc Omegaasper.sc Omegagrave.sc Omegaacute.sc Omegalenisgrave.sc
+	Omegaaspergrave.sc Omegalenisacute.sc Omegaasperacute.sc Omegalenistilde.sc Omegaaspertilde.sc Alphalenis.alt
+	Alphaasper.alt Alphabreve.alt Alphamacron.alt Alphagrave.alt Alphaacute.alt Alphalenisgrave.alt Alphaaspergrave.alt
+	Alphalenisacute.alt Alphaasperacute.alt Alphalenistilde.alt Alphaaspertilde.alt Epsilonlenis.alt Epsilonasper.alt
+	Epsilongrave.alt Epsilonacute.alt Epsilonlenisgrave.alt Epsilonaspergrave.alt Epsilonlenisacute.alt
+	Epsilonasperacute.alt Etalenis.alt Etaasper.alt Etagrave.alt Etaacute.alt Etalenisgrave.alt Etaaspergrave.alt
+	Etalenisacute.alt Etaasperacute.alt Etalenistilde.alt Etaaspertilde.alt Iotalenis.alt Iotaasper.alt Iotabreve.alt
+	Iotamacron.alt Iotagrave.alt Iotaacute.alt Iotalenisgrave.alt Iotaaspergrave.alt Iotalenisacute.alt
+	Iotaasperacute.alt Iotalenistilde.alt Iotaaspertilde.alt Omicronlenis.alt Omicronasper.alt Omicrongrave.alt
+	Omicronacute.alt Omicronlenisgrave.alt Omicronaspergrave.alt Omicronlenisacute.alt Omicronasperacute.alt
+	Rhoasper.alt Upsilonasper.alt Upsilonbreve.alt Upsilonmacron.alt Upsilongrave.alt Upsilonacute.alt
+	Upsilonaspergrave.alt Upsilonasperacute.alt Upsilonaspertilde.alt Omegalenis.alt Omegaasper.alt Omegagrave.alt
+	Omegaacute.alt Omegalenisgrave.alt Omegaaspergrave.alt Omegalenisacute.alt Omegaasperacute.alt Omegalenistilde.alt
+	Omegaaspertilde.alt Alphaiotasublenis.altiotasub Alphaiotasubasper.altiotasub Alphaiotasublenisgrave.altiotasub
+	Alphaiotasubaspergrave.altiotasub Alphaiotasublenisacute.altiotasub Alphaiotasubasperacute.altiotasub
+	Alphaiotasublenistilde.altiotasub Alphaiotasubaspertilde.altiotasub Etaiotasublenis.altiotasub
+	Etaiotasubasper.altiotasub Etaiotasublenisgrave.altiotasub Etaiotasubaspergrave.altiotasub
+	Etaiotasublenisacute.altiotasub Etaiotasubasperacute.altiotasub Etaiotasublenistilde.altiotasub
+	Etaiotasubaspertilde.altiotasub Omegaiotasublenis.altiotasub Omegaiotasubasper.altiotasub
+	Omegaiotasublenisgrave.altiotasub Omegaiotasubaspergrave.altiotasub Omegaiotasublenisacute.altiotasub
+	Omegaiotasubasperacute.altiotasub Omegaiotasublenistilde.altiotasub Omegaiotasubaspertilde.altiotasub
+	Alphaiotasub.iotasc Alphaiotasublenis.iotasc Alphaiotasubasper.iotasc Alphaiotasublenisgrave.iotasc
+	Alphaiotasubaspergrave.iotasc Alphaiotasublenisacute.iotasc Alphaiotasubasperacute.iotasc
+	Alphaiotasublenistilde.iotasc Alphaiotasubaspertilde.iotasc Etaiotasub.iotasc Etaiotasublenis.iotasc
+	Etaiotasubasper.iotasc Etaiotasublenisgrave.iotasc Etaiotasubaspergrave.iotasc Etaiotasublenisacute.iotasc
+	Etaiotasubasperacute.iotasc Etaiotasublenistilde.iotasc Etaiotasubaspertilde.iotasc Omegaiotasub.iotasc
+	Omegaiotasublenis.iotasc Omegaiotasubasper.iotasc Omegaiotasublenisgrave.iotasc Omegaiotasubaspergrave.iotasc
+	Omegaiotasublenisacute.iotasc Omegaiotasubasperacute.iotasc Omegaiotasublenistilde.iotasc
+	Omegaiotasubaspertilde.iotasc Alphaiotasub.iotasub Alphaiotasublenis.iotasub Alphaiotasubasper.iotasub
+	Alphaiotasublenisgrave.iotasub Alphaiotasubaspergrave.iotasub Alphaiotasublenisacute.iotasub
+	Alphaiotasubasperacute.iotasub Alphaiotasublenistilde.iotasub Alphaiotasubaspertilde.iotasub Etaiotasub.iotasub
+	Etaiotasublenis.iotasub Etaiotasubasper.iotasub Etaiotasublenisgrave.iotasub Etaiotasubaspergrave.iotasub
+	Etaiotasublenisacute.iotasub Etaiotasubasperacute.iotasub Etaiotasublenistilde.iotasub Etaiotasubaspertilde.iotasub
+	Omegaiotasub.iotasub Omegaiotasublenis.iotasub Omegaiotasubasper.iotasub Omegaiotasublenisgrave.iotasub
+	Omegaiotasubaspergrave.iotasub Omegaiotasublenisacute.iotasub Omegaiotasubasperacute.iotasub
+	Omegaiotasublenistilde.iotasub Omegaiotasubaspertilde.iotasub Alphaiotasub.iotauc Alphaiotasublenis.iotauc
+	Alphaiotasubasper.iotauc Alphaiotasublenisgrave.iotauc Alphaiotasubaspergrave.iotauc Alphaiotasublenisacute.iotauc
+	Alphaiotasubasperacute.iotauc Alphaiotasublenistilde.iotauc Alphaiotasubaspertilde.iotauc Etaiotasub.iotauc
+	Etaiotasublenis.iotauc Etaiotasubasper.iotauc Etaiotasublenisgrave.iotauc Etaiotasubaspergrave.iotauc
+	Etaiotasublenisacute.iotauc Etaiotasubasperacute.iotauc Etaiotasublenistilde.iotauc Etaiotasubaspertilde.iotauc
+	Omegaiotasub.iotauc Omegaiotasublenis.iotauc Omegaiotasubasper.iotauc Omegaiotasublenisgrave.iotauc
+	Omegaiotasubaspergrave.iotauc Omegaiotasublenisacute.iotauc Omegaiotasubasperacute.iotauc
+	Omegaiotasublenistilde.iotauc Omegaiotasubaspertilde.iotauc Alphaiotasub.sciotasc Alphaiotasublenis.sciotasc
+	Alphaiotasubasper.sciotasc Alphaiotasublenisgrave.sciotasc Alphaiotasubaspergrave.sciotasc
+	Alphaiotasublenisacute.sciotasc Alphaiotasubasperacute.sciotasc Alphaiotasublenistilde.sciotasc
+	Alphaiotasubaspertilde.sciotasc Etaiotasub.sciotasc Etaiotasublenis.sciotasc Etaiotasubasper.sciotasc
+	Etaiotasublenisgrave.sciotasc Etaiotasubaspergrave.sciotasc Etaiotasublenisacute.sciotasc
+	Etaiotasubasperacute.sciotasc Etaiotasublenistilde.sciotasc Etaiotasubaspertilde.sciotasc Omegaiotasub.sciotasc
+	Omegaiotasublenis.sciotasc Omegaiotasubasper.sciotasc Omegaiotasublenisgrave.sciotasc
+	Omegaiotasubaspergrave.sciotasc Omegaiotasublenisacute.sciotasc Omegaiotasubasperacute.sciotasc
+	Omegaiotasublenistilde.sciotasc Omegaiotasubaspertilde.sciotasc alphaiotasub.sciotasc alphaiotasublenis.sciotasc
+	alphaiotasubasper.sciotasc alphaiotasubgrave.sciotasc alphaiotasubacute.sciotasc alphaiotasubtilde.sciotasc
+	alphaiotasublenisgrave.sciotasc alphaiotasubaspergrave.sciotasc alphaiotasublenisacute.sciotasc
+	alphaiotasubasperacute.sciotasc alphaiotasublenistilde.sciotasc alphaiotasubaspertilde.sciotasc etaiotasub.sciotasc
+	etaiotasublenis.sciotasc etaiotasubasper.sciotasc etaiotasubgrave.sciotasc etaiotasubacute.sciotasc
+	etaiotasubtilde.sciotasc etaiotasublenisgrave.sciotasc etaiotasubaspergrave.sciotasc etaiotasublenisacute.sciotasc
+	etaiotasubasperacute.sciotasc etaiotasublenistilde.sciotasc etaiotasubaspertilde.sciotasc omegaiotasub.sciotasc
+	omegaiotasublenis.sciotasc omegaiotasubasper.sciotasc omegaiotasubgrave.sciotasc omegaiotasubacute.sciotasc
+	omegaiotasubtilde.sciotasc omegaiotasublenisgrave.sciotasc omegaiotasubaspergrave.sciotasc
+	omegaiotasublenisacute.sciotasc omegaiotasubasperacute.sciotasc omegaiotasublenistilde.sciotasc
+	omegaiotasubaspertilde.sciotasc Alphaiotasub.sciotasub Alphaiotasublenis.sciotasub Alphaiotasubasper.sciotasub
+	Alphaiotasublenisgrave.sciotasub Alphaiotasubaspergrave.sciotasub Alphaiotasublenisacute.sciotasub
+	Alphaiotasubasperacute.sciotasub Alphaiotasublenistilde.sciotasub Alphaiotasubaspertilde.sciotasub
+	Etaiotasub.sciotasub Etaiotasublenis.sciotasub Etaiotasubasper.sciotasub Etaiotasublenisgrave.sciotasub
+	Etaiotasubaspergrave.sciotasub Etaiotasublenisacute.sciotasub Etaiotasubasperacute.sciotasub
+	Etaiotasublenistilde.sciotasub Etaiotasubaspertilde.sciotasub Omegaiotasub.sciotasub Omegaiotasublenis.sciotasub
+	Omegaiotasubasper.sciotasub Omegaiotasublenisgrave.sciotasub Omegaiotasubaspergrave.sciotasub
+	Omegaiotasublenisacute.sciotasub Omegaiotasubasperacute.sciotasub Omegaiotasublenistilde.sciotasub
+	Omegaiotasubaspertilde.sciotasub alphaiotasub.sciotasub alphaiotasublenis.sciotasub alphaiotasubasper.sciotasub
+	alphaiotasubgrave.sciotasub alphaiotasubacute.sciotasub alphaiotasubtilde.sciotasub alphaiotasublenisgrave.sciotasub
+	alphaiotasubaspergrave.sciotasub alphaiotasublenisacute.sciotasub alphaiotasubasperacute.sciotasub
+	alphaiotasublenistilde.sciotasub alphaiotasubaspertilde.sciotasub etaiotasub.sciotasub etaiotasublenis.sciotasub
+	etaiotasubasper.sciotasub etaiotasubgrave.sciotasub etaiotasubacute.sciotasub etaiotasubtilde.sciotasub
+	etaiotasublenisgrave.sciotasub etaiotasubaspergrave.sciotasub etaiotasublenisacute.sciotasub
+	etaiotasubasperacute.sciotasub etaiotasublenistilde.sciotasub etaiotasubaspertilde.sciotasub omegaiotasub.sciotasub
+	omegaiotasublenis.sciotasub omegaiotasubasper.sciotasub omegaiotasubgrave.sciotasub omegaiotasubacute.sciotasub
+	omegaiotasubtilde.sciotasub omegaiotasublenisgrave.sciotasub omegaiotasubaspergrave.sciotasub
+	omegaiotasublenisacute.sciotasub omegaiotasubasperacute.sciotasub omegaiotasublenistilde.sciotasub
+	omegaiotasubaspertilde.sciotasub Kavert.sc Chevert.sc Upsilonasper.2 Upsilongrave.2 Upsilonacute.2
+	Upsilonaspergrave.2 Upsilonasperacute.2 Upsilonaspertilde.2 Upsilonbreve.2 Upsilonmacron.2 Upsilonasper.alt2
+	Upsilonbreve.alt2 Upsilonmacron.alt2 Upsilongrave.alt2 Upsilonacute.alt2 Upsilonaspergrave.alt2
+	Upsilonasperacute.alt2 Upsilonaspertilde.alt2 upsilondieresistonos.sc2 upsilonlenis.sc2 upsilonasper.sc2
+	upsilongrave.sc2 upsilonacute.sc2 upsilonbreve.sc2 upsilonmacron.sc2 upsilontilde.sc2 upsilondieresisgrave.sc2
+	upsilondieresisacute.sc2 upsilondieresistilde.sc2 upsilonlenisgrave.sc2 upsilonaspergrave.sc2 upsilonlenisacute.sc2
+	upsilonasperacute.sc2 upsilonlenistilde.sc2 upsilonaspertilde.sc2 Upsilonasper.sc2 Upsilonbreve.sc2
+	Upsilonmacron.sc2 Upsilongrave.sc2 Upsilonacute.sc2 Upsilonaspergrave.sc2 Upsilonasperacute.sc2
+	Upsilonaspertilde.sc2 oslash-black obar-black Ccedilla-display Aogonek-display Eogonek-display Iogonek-display
+	Scedilla-display Uogonek-display Ohorn-display Uhorn-display i-display j-display ccedilla-display aogonek-display
+	eogonek-display iogonek-display scedilla-display uogonek-display ohorn-display uhorn-display Esdescender-display
+	Zedescender-display esdescender-display zedescender-display grave-display acute-display circumflex-display
+	tilde-display macron-display breve-display dotaccent-display dieresis-display ring-display cedilla-display
+	hungarumlaut-display ogonek-display caron-display commaaccent-display dblgrave-display breveacute-display
+	brevegrave-display brevehook-display brevetilde-display circumflexacute-display circumflexgrave-display
+	circumflexhook-display circumflextilde-display dotbelow-display hook-display iotasubscript-display tonos-display
+	dieresistonos-display lenis-display asper-display lenisgrave-display aspergrave-display lenisacute-display
+	asperacute-display lenistilde-display aspertilde-display dialytikagrave-display dialytikaacute-display
+	dialytikatilde-display breve.cyr-display circumflex.cyr-display ccedilla.sc-display aogonek.sc-display
+	eogonek.sc-display iogonek.sc-display scedilla.sc-display uogonek.sc-display ohorn.sc-display uhorn.sc-display
+	esdescender.sc-display zedescender.sc-display grave.sc-display acute.sc-display circumflex.sc-display
+	tilde.sc-display macron.sc-display breve.sc-display dotaccent.sc-display dieresis.sc-display ring.sc-display
+	cedilla.sc-display hungarumlaut.sc-display ogonek.sc-display caron.sc-display commaaccent.sc-display
+	dblgrave.sc-display breveacute.sc-display brevegrave.sc-display brevehook.sc-display brevetilde.sc-display
+	circumflexacute.sc-display circumflexgrave.sc-display circumflexhook.sc-display circumflextilde.sc-display
+	dotbelow.sc-display hook.sc-display grave.cap-display acute.cap-display circumflex.cap-display tilde.cap-display
+	macron.cap-display breve.cap-display dotaccent.cap-display dieresis.cap-display ring.cap-display cedilla.cap-display
+	hungarumlaut.cap-display ogonek.cap-display caron.cap-display commaaccent.cap-display dblgrave.cap-display
+	breveacute.cap-display brevegrave.cap-display brevehook.cap-display brevetilde.cap-display
+	circumflexacute.cap-display circumflexgrave.cap-display circumflexhook.cap-display circumflextilde.cap-display
+	dotbelow.cap-display hook.cap-display tonos.cap-display lenis.cap-display asper.cap-display varia.cap-display
+	oxia.cap-display lenisgrave.cap-display aspergrave.cap-display lenisacute.cap-display asperacute.cap-display
+	lenistilde.cap-display aspertilde.cap-display three-ui eight-ui B-ui E-ui F-ui G-ui H-ui K-ui a-ui e-ui i-ui j-ui
+	grave-ui acute-ui circumflex-ui tilde-ui macron-ui breve-ui dotaccent-ui dieresis-ui ring-ui cedilla-ui caron-ui
+	grave.cap-ui acute.cap-ui circumflex.cap-ui tilde.cap-ui macron.cap-ui breve.cap-ui dotaccent.cap-ui dieresis.cap-ui
+	ring.cap-ui cedilla.cap-ui caron.cap-ui J-mime a-light b-light d-light p-light q-light aogonek-light a-black e-black
+	g-black s-black ae-black oe-black eogonek-black epsilon-black ze-black
+
+	The reason for the glyph removal was the decision that Polytonic Greek is not needed in Adobe Clean.
+	Also, historical Cyrillic and German glyph, and some glyphs not in the AL4 range were removed.
+
+	Renamed the following glyphs to comply with AL4:
+	alphalatin -> ascript
+	apostrophe -> apostrophemod
+	ringhalfright -> ringhalfrightmod
+	ringhalfleft -> ringhalfleftmod
+	firsttonechinese -> macronmod
+	secondtonechinese -> acutemod
+	fourthtonechinese -> gravemod
+
+
+version 4.005 created 2011/06/24
+
+	Fix to the numerals in the features 'c2sc' and 'ss02'.
+	Added SemiLight (+ Italic) to the family.
+
+
+version 4.004 created 2011/06/22
+	Corrected manual hints of glyphs zero, three and four of AdobeClean-It.ttf
+
+
+version 4.003 created 2011/06/21
+	Adjusted the figures alignment zone of several italic fonts.
+
+
+version 4.002 created 2011/06/20
+	Fixed bug that affected the numerals in the features subs, sups, numr and dnom (as well as the frac feature).
+
+
+version 4.001 created 2011/05/01
+	Corrected the position of the alignment zone associated with the universal-height figures.
+	This release includes OTF and TTF fonts.
+
+
+version 4.000 created 2011/04/27
+	The figure sets have changed once more. The default figures are now proportional-width and universal-height. As a result, the sets of figures and figure-related symbols have changed accordingly, and so has feature 'ss01'.
+	The vertical metrics are now the same in both OTF and TTF formats.
+
+
+version 3.533 created 2010/12/17
+	Added code at end of name ID 3 'Unique Name' to indicate licensing foundry.
+	More alignment fixes and sidebearing fixes (S and lje.sc/Lje.sc).
+
+
+version 3.001 created 2011/01/14
+	Fixed alignment problems caused by the incorrect height of some glyphs and by deficiencies in some hinting settings.
+
+
+version 3.000 created 2010/12/15
+	Changes to outlines including raised cap height, figure height, small cap height and ascender height.
+	Changes to kerning and advanced withs of several glyphs.
+	Added optical size sub-families (5pt, 7pt, Display) -- 26 additional fonts
+
+
+version 2.523 created 2010/11/16
+	Remove deprecated ForceBold keyword from CFF table.
+	Update OS/2 table to version 4: add WPF names name ID 21 and 22 to name table, if needed.
+	Improvements to the TT fonts (CFF selective hinting, vertical metrics, PPMs adjustments, glyph instructions overrides for Ss Zz 2 5 and others).
+	This delivery to Acrobat.com and Adobe.com includes the following 6 fonts: Light, Regular, Bold, ExtraBold, Italic, Bold Italic.
+
+
+version 2.502 created 2010/03/29
+	Swapped dong by dong.alt (plus .oldstyle and .univ alternates)
+	Fixed path orientation on glyphs 'zhe' and 'zhe.sc' (Roman only)
+
+
+version 2.501 created 2010/03/01 
+	Minor design changes.
+	Minor changes to kerning.
+	Minor changes to accent positioning.
+
+
+29 January 2010 - v2.500 [msousa] (not released to QE)
+- Figures 6 and 9 were redesigned
+- In Cyrillic, the default forms of De/El/Lje/de/el/lje are now the trapezoid instead of the triangular
+- Added <dlig> feature
+- Removed glyphs 'longs_longs_b' and 'rupiah'(+ alternates)
+- Removed glyph 'de.alt' from the italics
+- The height of the default figures is now back to cap-height (as in version 1.xxx), and the former cap-height figures (and currency symbols) were replaced by .univ versions; the features <case> and <ss01> were modified to reflect these changes.
+
+
+08 September 2009 - v2.003 [msousa]
+- Adjusted alignment zones
+
+
+02 September 2009 - v2.002 [msousa]
+- Regenerated the italics because they had overlapping paths.
+REASON: MakeInstances was ran with the switches to remove overlap and autohint turned off, in order to shorten the time of debugging OT features and other issues.
+Later makeInstances should have been used again with those switches turned on, but it wasn't.
+
+
+01 September 2009 - v2.001 [msousa]
+- Rehinted the italic fonts and rebuilt the whole family.
+REASON: MakeInstances (specifically IS) leaves a single bogus hint in place so that tx doesn't swamp the output with “no hint” messages. 
+This unfortunately makes CompareFamily (single face test #18) think that the glyphs are properly hinted, since it finds at least one hint. 
+For this reason this error went by unnoticed during production. Fortunately Ernie caught it.
+
+
+29 August 2009 - v2.000 [msousa]
+- Added .cap figures and currency symbols
+- Removed .univ figures and currency symbols
+- Repurposed some Stylistic Sets features due to the above changes
+- Added Cyrillic small cap-height figures and currency symbols (dollar, hryvnia)
+- Removed small caps from italic fonts
+- Minor design changes throughout the family; the stroke-weight is now less monoline and more contrasted 
+- Changed instances values (the faces are now narrower and spaced tighter)
+- Minor changes to kerning values
+
+
+03 June 2009 (this version was NOT built) [msousa]
+- Adjusted '.cap' punctuation.
+
+
+18 March 2009 - v1.026 [msousa]
+- Removed two of the bottom alignment zones (between the baseline and the small cap height) as they were interfering with the hinting of small caps.
+
+
+13 March 2009 - v1.025 [msousa]
+- All fonts were rebuild using the new MakeInstances program (v1.16 Mar 10 2009). The source mmfont.pfa files were NOT hinted.
+- The bottom zone removed in v1.019 and reintroduced in later versions, is now removed again
+- 27 polytonic Greek uppercase glyphs that used an adjacent full-size iota, now correctly use a reduced-size iota (iotaadscript)
+- The shape of the descender in (Ze|ze|Es|es)descender(.sc) was changed to a cedilla form
+- Change many final names to make them comply with AGLFN v1.7 and AL4
+
+
+06 February 2009 - v1.024 [msousa]
+- Roman fonts: Minor tweak to the counter of 'gscript'(uni0261) and 'g.alt' (plus accented versions)
+- Italic fonts: Adjusted the height of 'one', 'five' and 'seven' because the tops were not touching the alignment zone (of the capitals)
+
+
+29 January 2009 - v1.023 [msousa]
+- Swapped the mappings (and final glyph name) of T/tcedilla with T/tcommaaccent (including Small Caps)
+
+
+28 January 2009 - v1.022 [msousa]
+Release of 14 fonts (Light, Regular, Bold, ExtraBold, Black, SemiCondensed, Bold SemiCondensed +italics)
+
+- Reduced the weight of the Bold and Bold SemiCondensed fonts (including italics) from 680 to 600/570.
+- Added musicalnote (U+266A)
+- Enlarged the width of the 'space' character (and nbspace)
+- Minor tweaks to glyphs 'b' and 'p' (Roman fonts only)
+
+
+14 January 2009 - v1.021 [msousa]
+Release of 14 fonts (Light, Regular, Bold, ExtraBold, Black, SemiCondensed, Bold SemiCondensed +italics)
+
+- Four more fonts added to the family: SemiCondensed and Bold SemiCondensed (+italics)
+- Robert made tweaks to many glyphs (Black weight is less "muddy")
+
+
+09 January 2009 - v1.020 [msousa]
+- Two more weights added to the family: ExtraBold and Black (+italics)
+- Fixed /quotesinglbase and /quotedblbase
+- Fixed horizontal offset of .denominator, .superior and .inferior numerals (Italic only)
+- Kerned quotes w/ quotes and quotes w/ baseline punctuation
+- Kerned .numerator and .denominator glyphs w/ fraction bar
+Known issues:
+- PANOSE numbers for the ExtraBold and Black fonts are not final
+
+
+25 November 2008 - v1.019 [msousa]
+Rebuild of the complete "Adobe Clean" family composed of 6 fonts -- Light, Regular, Bold, and respective italics.
+
+- Removed the bottom zone (OtherBlues [446 452]) for the superior figures in the Light weight fonts
+
+
+24 November 2008 - v1.018 [msousa]
+Rebuild of the complete "Adobe Clean" family composed of 6 fonts -- Light, Regular, Bold, and respective italics.
+
+- Corrected the outline glitches in the Light fonts flagged by QE.
+- Removed nameID 14 (License Info URL) and added nameID 13 (License Description) with the following content:
+	This font is intended for limited use by Adobe software, technology and authorized users. Any unauthorized installation, transfer and/or use of this font is strictly prohibited.
+- There are no known issues
+
+
+20 November 2008 - v1.017 [msousa]
+Build of the complete "Adobe Clean" family composed of 6 fonts -- Light, Regular, Bold, and respective italics.
+
+- Added Light weight fonts
+- Changed instance values of the Bold weight
+- Corrected the accent position on the 'l' glyphs, in the romans
+- Corrected the accent position of 'gcommaaccent' and 'gtilde', in the italics
+- Corrected the advanced width of 'guarani' and 'naira.oldstyle', in the romans
+- Corrected the advanced width of several default and '.oldstyle' currency symbols, in the italics
+- Corrected the position of most alternates of 'currency', in the italics
+- Edited the figure style features (onum, lnum, pnum, tnum) and the currency class @CURRENCY_FIT_OLDSTYLE
+- Robert made some outline changes to the letters /a/g/i in the Roman, and to the letter /g in the Italic. Robert's file versions: Roman #152, Italic #82.
+Known issues:
+- The legal notice needs to be extended and refer the exclusivity usage of the fonts.
+
+
+11 November 2008 - v1.016 [msousa]
+RC candidate build of mini-family composed of Regular, Italic, Bold and Bold Italic fonts only.
+
+- The Roman font is derived from Robert's file version #149, and the Italic is from #81.
+- PANOSE numbers were added.
+- Final names of fi, fl, onesuperior, twosuperior and threesuperior were corrected.
+- Added sub @CURRENCY_TAB_LINING by @CURRENCY_SC to 'c2sc'.
+- Added guarani and naira to currency classes.
+- Cleaned up currency classes and figure style features (onum, lnum, pnum, tnum)
+- Added "dieresisgrave dieresisacute dieresiscaron dieresismacron" to accent classes (UC, LC, SC)
+- Adjusted the vertical offset of denominators
+- Adjusted the vertical offtet of anoteleia.cap
+- Replaced curved-arms Upsilon (UC, SC) by straight-arms Upsilon (same as Y).
+	-- Previous Upsilon form is now an alternate, accessible via 'ss06'.
+	-- Added necessary kerning classes and kerning values.
+- Added Stylistic Set #6: replaces straight Upsilon by curved Upsilon
+- Italic glyphs were shifted 50 units to the left in all masters.
+	-- All glyphs were shifted expect the ones listed below.
+	-- These same glyphs are copied directly from the Roman font.
+		plus
+		less
+		equal
+		greater
+		asciicircum
+		underscore
+		bar
+		asciitilde
+		logicalnot
+		plusminus
+		divide
+		brokenbar
+		degree
+		minus
+		multiply
+		estimated
+		infinity
+		approxequal
+		notequal
+		lessequal
+		greaterequal
+		minusplus
+		revlogicalnot
+		arrowup
+		arrowdown
+		arrowleft
+		arrowright
+		triangleblackup
+		triangleblackdown
+		triangleblackleft
+		triangleblackright
+		trianglewhiteup
+		trianglewhitedown
+		trianglewhiteleft
+		trianglewhiteright
+		fisheye
+		diamondblack
+		squareblack
+		squareshadow
+		check
+		checkbox
+		checkbox.checked
+- Added two new secondary alignment zones for the baseline of .numerator and .superior glyphs
+- There are no known issues
+
+
+
+19 September 2008 - v1.015 [msousa]
+RC candidate build of mini-family composed of Regular, Italic, Bold and Bold Italic fonts only.
+NOTE: This is the first release to QE. There were no alpha or beta releases prior to this build.
+
+- The Roman font is derived from Robert's file version #142, and the Italic is from #78.
+- The character set of this family is (at least) Adobe Latin 4.
+- The fonts have kerning, including kerning exceptions.
+- The LSB of polytonic Greek caps accounts for the accents.
+- The fonts have nameID 8 (Manufacturer Name)
+- The OT features are considered complete.
+
+- The hinting parameters are set, however:
+	-- It might be good to add 2 more secondary alignment zones (OtherBlues & FamilyOtherBlues)
+	-- The BlueScale value might have to be tweaked for other weights (e.g. Light, Black)
+
+- Stylistic Sets:
+	ss01: Universal figures (Figure height to be used with both UC and LC. The default figures are cap height.)
+	ss02: Small Cap figures (SC-height figures. Also available through 'c2sc' feature.)
+	ss03: Cyrillic alternates (de el lje: in UC, LC and SC)
+	ss04: Monocular 'g' (Roman only)
+	ss05: Replaces iota adscript by iota subscript
+
+Known issues:
+- PANOSE numbers are not final
+- Italic glyphs need to be shifted left to fit inline with the Roman.
+- Greek kerning (Cap to lowercase) is incomplete.
