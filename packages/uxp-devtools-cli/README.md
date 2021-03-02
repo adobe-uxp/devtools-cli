@@ -5,8 +5,8 @@
 - [Getting started](#getting-started)
     * [Software requirements](#software-requirements)
     * [Installation](#installation)
-        + [Manual installation](#manual-installation)
         + [Installation via package manager (work in progress)](#installation-via-package-manager-work-in-progress)
+        + [Manual installation](#manual-installation)
     * [Quick start guide](#quick-start-guide)
     * [Help commands](#help-commands)
 - [Commands](#commands)
@@ -33,6 +33,11 @@
 (Devtools helper uses N-API v4. Node version and N-API compatibility matrix is available [here](https://nodejs.org/api/n-api.html#n_api_n_api_version_matrix).)
 
 ## Installation
+
+### Installation via package manager (work in progress)
+
+    npm install @adobe-uxp/devtools-cli
+
 
 ### Manual installation
 
@@ -67,14 +72,6 @@ Note: Installation will work on node running in Intel emulation mode (`x64`).
 - Either clone this repository to your local machine or download and extract the zip
 - `cd` into the resulting `uxp-developer-tools` directory
 - Run `yarn install`
-
-### Installation via package manager (work in progress)
-
-    npm install @adobe/uxp-devtools-cli
-
-or
-
-    yarn add @adobe/uxp-devtools-cli
 
 ## Quick start guide
 
