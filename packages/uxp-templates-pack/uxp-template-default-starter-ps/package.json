@@ -1,0 +1,22 @@
+{
+  "name": "@adobe/uxp-template-default-starter-ps",
+  "version": "1.0.0",
+  "description": "Default template for creating Adobe UXP based photoshop plugin.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@git.corp.adobe.com:torq/uxp-developer-tools.git",
+    "directory": "packages/uxp-templates-pack"
+  },
+  "keywords": [
+    "adobe",
+    "uxp",
+    "starter"
+  ],
+  "author": "Adobe Inc",
+  "license": "Apache-2.0",
+  "files": [
+    "template.json",
+    "template"
+  ]
+}

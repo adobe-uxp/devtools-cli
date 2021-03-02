@@ -15,7 +15,7 @@ const fs = require("fs");
 const path = require("path");
 const { getUxpGlobalLocation, getYarnGlobalBinFolder } = require("./common");
 /**
- * NOTE: This scripts gets called post install. We will use this create a sym link to 
+ * NOTE: This scripts gets called post install. We will use this create a sym link to
  * main script file (uxp.js) in the npm global bin folder.
  * This is mainly done to simulate `npm install -g @adobe/uxp` command
  * Given that we don't have this repo published to npm registry yet.
@@ -31,14 +31,26 @@ function checkYarnBinFolderInPath() {
     }
 }
 
+function isSymLinkExists(symPath) {
+    try {
+        const res = fs.lstatSync(symPath);
+        return res.isSymbolicLink();
+    }
+    catch (err) {
+        console.log("symlink exists failed " + err);
+    }
+    return false;
+}
+
+
 function installUxpCliScriptForMac() {
     const { mainScriptFile, uxpBinPath } = getUxpGlobalLocation();
     console.log(`Creating sym-link to uxp main script file in global bin folder ${uxpBinPath}`);
     fs.chmodSync(mainScriptFile, 0o755);
-    if (fs.existsSync(uxpBinPath)) {
+    if (isSymLinkExists(uxpBinPath)) {
         fs.unlinkSync(uxpBinPath);
     }
-    fs.symlinkSync(mainScriptFile, uxpBinPath, 'file');
+    fs.symlinkSync(mainScriptFile, uxpBinPath, "file");
 
     checkYarnBinFolderInPath();
 }
@@ -48,7 +60,7 @@ function installUxpCliScriptForWin() {
     console.log(`Creating batch file to uxp main script file in global bin folder ${uxpBinPath}`);
     fs.chmodSync(mainScriptFile, 0o755);
 
-    const mainScriptWithoutExtension = path.resolve(path.dirname(mainScriptFile), path.basename(mainScriptFile, '.js'));
+    const mainScriptWithoutExtension = path.resolve(path.dirname(mainScriptFile), path.basename(mainScriptFile, ".js"));
 
     /* On Windows, npm creates the wrapper batch file (*.cmd) based on whatever
        shell/interpreter is specified in the script file's shebang line.
@@ -57,10 +69,16 @@ function installUxpCliScriptForWin() {
                          @SETLOCAL
                          @SET PATHEXT=%PATHEXT:;.JS;=;%
                          node ${mainScriptWithoutExtension} %*`;
-    const filePath = uxpBinPath + '.cmd';
+    const filePath = `${uxpBinPath}.cmd`;
     fs.writeFileSync(filePath, fileContent, "utf8");
 
     checkYarnBinFolderInPath();
 }
 
-(process.platform === "win32") ? installUxpCliScriptForWin() : installUxpCliScriptForMac();
+const isWindows = process.platform === "win32";
+if (isWindows) {
+    installUxpCliScriptForWin();
+}
+else {
+    installUxpCliScriptForMac();
+}

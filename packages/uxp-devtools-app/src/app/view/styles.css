@@ -1,0 +1,91 @@
+.plugin-card-view {
+    background-color: red;
+    width: 200px;
+    height: 100px;
+}
+
+.startViewContainer {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.appDetailsCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-top: var(--spectrum-global-dimension-size-50);
+    border-width: var(--spectrum-global-dimension-static-size-10,1px);
+    border-style: solid;
+    border-radius: var(--spectrum-global-dimension-size-50);
+    background-color: var(--spectrum-global-color-gray-100);
+    border-color: var(--spectrum-well-border-color);
+    padding: var(--spectrum-global-dimension-size-100);
+}
+
+.flexBasedFullContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.rowBasedFlexContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.columnBasedFlexContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.empty-plugin-workspace-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.leftNavBarContainer {
+    border-right: solid 0.1rem var(--spectrum-global-color-gray-200);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 10rem;
+    width: 15rem;
+}
+
+.appPrefsTitleText {
+    display: flex;
+    box-sizing: border-box;
+    padding: var(--spectrum-global-dimension-size-50) 0 var(--spectrum-global-dimension-size-65);
+    font-size: var(--spectrum-global-dimension-font-size-75);
+    font-weight: var(--spectrum-global-font-weight-regular, 400);
+    line-height: var(--spectrum-global-font-line-height-small,1.3);
+    vertical-align: top;
+    -webkit-font-smoothing: subpixel-antialiased;
+    color: var(--spectrum-global-color-gray-700)
+}
+
+.pluginCardStateCell {
+    margin-left: calc(-1 * var(--spectrum-global-dimension-size-200));
+}
+
+.logCardCls {
+    padding:  var(--spectrum-global-dimension-size-25) !important;
+}
+
+.logEntryHeaderCard {
+    margin-left: var(--spectrum-global-dimension-size-150);
+    margin-right: var(--spectrum-global-dimension-size-150);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: var(--spectrum-global-dimension-size-100);;
+}

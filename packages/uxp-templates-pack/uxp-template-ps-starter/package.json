@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@git.corp.adobe.com:torq/uxp-devtools-cli.git",
+    "url": "git@git.corp.adobe.com:torq/uxp-developer-tools.git",
     "directory": "packages/uxp-templates-pack"
   },
   "keywords": [

@@ -1,0 +1,28 @@
+{
+    "id": "QUICK_START_PANEL",
+    "name": "Hello World sample plugin for panel",
+    "host": {
+        "app": "XD",
+        "minVersion": "21.0"
+    },
+    "version": "1.0.0",
+    "icons": [
+        {
+            "width": 24,
+            "height": 24,
+            "path": "images/icon@1x.png"
+        },
+        {
+            "width": 48,
+            "height": 48,
+            "path": "images/icon@2x.png"
+        }
+    ],
+    "uiEntryPoints": [
+        {
+            "type": "panel",
+            "label": "Enlarge a Rectangle",
+            "panelId": "enlargeRectangle"
+        }
+    ]
+}

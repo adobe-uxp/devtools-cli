@@ -1,0 +1,21 @@
+{
+  "name": "@adobe/uxp-template-default-starter-xd",
+  "version": "1.0.0",
+  "description": "Starter template for creating Adobe UXP based XD plugin.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@git.corp.adobe.com:torq/uxp-devtools-cli.git",
+    "directory": "packages/uxp-templates-pack"
+  },
+  "keywords": [
+    "adobe",
+    "uxp"
+  ],
+  "author": "Adobe Inc",
+  "license": "Apache-2.0",
+  "files": [
+    "template.json",
+    "template"
+  ]
+}

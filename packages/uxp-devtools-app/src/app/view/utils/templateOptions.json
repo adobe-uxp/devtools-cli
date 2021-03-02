@@ -1,0 +1,14 @@
+{
+    "PS": [
+        { "name": "Select template" },
+        { "name": "ps-starter" },
+        { "name": "ps-react-starter" }
+    ],
+    "XD": [
+        { "name": "Select template" },
+        { "name": "xd-starter" }
+    ],
+    "default": [
+        { "name": "Select host application" }
+    ]
+}
