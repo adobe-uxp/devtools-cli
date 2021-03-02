@@ -36,7 +36,7 @@
 
 ### Installation via package manager (work in progress)
 
-    npm install @adobe-uxp/devtools-cli
+    npm install @adobe/uxp-devtools-cli
 
 
 ### Manual installation
