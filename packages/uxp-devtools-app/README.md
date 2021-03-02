@@ -4,7 +4,7 @@
 ## Local Setup 
 For building `UXP Developer Tool` locally follow below steps:
 
-* Clone [uxp-developer-tool](https://git.corp.adobe.com/torq/uxp-developer-tools) repo
+* Clone [uxp-developer-tool](https://github.com/adobe-uxp/devtools-cli.git) repo
 * Cd into `uxp-developer-tool` and run yarn install
 * cd into `packages/uxp-devtools-app` and run `yarn dev`
 * Open another terminal instance and cd into `packages/uxp-devtools-app` and run `yarn start-main-dev`
