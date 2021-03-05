@@ -25,13 +25,15 @@ jobs:
       - run: |
           npm install
           npm test
-      - name: bump and pub
+      - name: bump
         if: ${{ github.event.inputs.level != '' }}
         run: |
           npm version ${{ github.event.inputs.level }}
           git push
-      - uses: JS-DevTools/npm-publish@v1
-        with:
+      - name: publish all packages
+        run: |
+          yarn publish --all
+        env:
           token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
           tag: ${{ github.event.inputs.tag }}
           access: 'public'
