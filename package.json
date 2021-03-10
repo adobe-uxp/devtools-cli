@@ -1,7 +1,6 @@
 {
   "name": "uxp-developer-tools",
   "version": "1.2.0",
-  "private": true,
   "workspaces": {
     "packages": [
       "packages/*",
