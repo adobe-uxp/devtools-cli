@@ -1,0 +1,55 @@
+{
+    "id": "com.adobe.multihostPlugin",
+    "name": "Multi Host plugin",
+    "version": "1.0",
+    "main": "index.js",
+    "host": [
+      {
+        "app": "PS",
+        "minVersion": "21.0.0"
+      },
+      {
+        "app": "XD",
+        "minVersion": "35.0.0"
+      }
+    ],
+    "manifestVersion": 4,
+    "entrypoints": [
+        {
+            "type": "panel",
+            "id": "samplePlugin",
+            "panelId": "samplePlugin",
+            "label": {
+                "default": "Default Plugin",
+                "en-US": "Default Plugin",
+                "es-ES": "Default Plugin"
+            },
+            "minimumSize": {
+                "width": 120,
+                "height": 140
+            },
+            "maximumSize": {
+                "width": 1200,
+                "height": 10000
+            },
+            "preferredDockedSize": {
+                "width": 150,
+                "height": 200
+            },
+            "preferredFloatingSize": {
+                "width": 300,
+                "height": 200
+            },
+            "commands": [
+                {
+                    "id": "show_alert",
+                    "label": {
+                        "default": "Show Alert",
+                        "en-US": "Show Alert (US)",
+                        "es-ES": "Show Alert (ES)"
+                    }
+                }
+            ]
+        }
+    ]
+}

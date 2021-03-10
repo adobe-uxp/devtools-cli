@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-Regular.otf') format('opentype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-It.otf') format('opentype');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-Bold.otf') format('opentype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-BoldIt.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic
+}
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-Light.otf') format('opentype');
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-SemiLight.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-SemiLightIt.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'adobe-clean';
+    src: url('fonts/AdobeClean/AdobeClean-Medium.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.mainAppTitlebar {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    width: 100%;
+    border-bottom: 0.125rem solid  var(--spectrum-global-color-gray-200);
+    height: 2.5rem;
+    padding-left: 5.4rem;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+} 
+
+.mainHostContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--spectrum-global-color-gray-50);
+    overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+.sideNavHeader {
+    font-weight: var(--spectrum-global-font-weight-medium,500);
+    height: var(--spectrum-alias-single-line-height,var(--spectrum-global-dimension-size-400));
+    line-height: var(--spectrum-alias-single-line-height,var(--spectrum-global-dimension-size-400));
+    font-size: var(--spectrum-global-dimension-font-size-50);
+    color: var(--spectrum-global-color-gray-600);
+    letter-spacing: var(--spectrum-global-font-letter-spacing-medium,.06em);
+    font-style: normal;
+}
+
+summary {
+    list-style-type: none;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 12px -4px 0!important;
+    padding: 2px;
+}
+
+summary:focus {
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary svg {
+    transform: rotate(90deg);
+}

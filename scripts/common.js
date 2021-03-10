@@ -15,12 +15,12 @@ const path = require("path");
 const { execSync } = require("child_process");
 
 function getYarnGlobalBinFolder() {
-    const binPath = execSync('yarn global bin');
+    const binPath = execSync("yarn global bin");
     return binPath.toString().trim();
 }
 
 function getUxpGlobalLocation() {
-    const mainScriptFile = path.resolve(__dirname, "../packages/uxp-cli/src/uxp.js");
+    const mainScriptFile = path.resolve(__dirname, "../packages/uxp-devtools-cli/src/uxp.js");
     const yarnBinPath = getYarnGlobalBinFolder();
     if (!yarnBinPath) {
         throw new Error("Failed to install the cli scripts in yarn bin folder");

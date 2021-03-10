@@ -6,18 +6,26 @@
 <style>
   body {
     color: white;
-  }
-  ul {
-
+    padding: 0 16px;
   }
   li:before {
-    content: '•';
+    content: '• ';
     width: 3em;
+  }
+
+  #layers {
+    border: 1px solid #808080;
+    border-radius: 4px;
+    padding: 16px;
   }
 </style>
 <body>
-  <h1>Layers</h1>
-  <div id="layers"></div>
-  <button id="btnPopulate">Populate Layers</button>
+  <sp-heading>Layers</sp-heading>
+  <sp-body id="layers">
+    No layers
+  </sp-body>
+  <footer>
+    <sp-button id="btnPopulate">Populate Layers</sp-button>
+  </footer>
 </body>
 </html>

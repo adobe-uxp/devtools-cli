@@ -1,0 +1,40 @@
+{
+    "reporters": [
+        "default",
+        ["./node_modules/jest-html-reporter", {
+            "pageTitle": "Test Report"
+        }]
+    ],
+    "transform": {
+        "^.+\\.jsx?$": "babel-jest"
+    },
+
+    "moduleNameMapper": {
+        "electron": "<rootDir>/packages/uxp-devtools-app/tests/mocks/electron-mock.js"
+      },
+      "coveragePathIgnorePatterns": [
+        "node_modules",
+        "configs",
+        ".mock.ts",
+        ".config.js",
+        "dist",
+        "tests",
+        "uxp-templates-pack",
+        "uxp-devtools-app/scripts"
+    ],
+    "collectCoverageFrom": [
+        "packages/**/*.js",
+        "packages/**/*.jsx"
+    ],
+    "coverageDirectory" : "app-coverage",
+    "collectCoverage": true,
+    "verbose": true,
+    "testTimeout": 30000,
+    "roots": [
+      "<rootDir>/packages"
+    ],
+    "testRegex": "((\\.|/*.)(test))\\.js?$",
+    "moduleFileExtensions": [
+      "ts", "tsx", "js", "jsx"
+    ]
+}
