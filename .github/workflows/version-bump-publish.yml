@@ -25,13 +25,13 @@ jobs:
       - run: |
           npm install
           npm test
-      - name: bump and pub
+      # - name: bump and pub
         # if: ${{ github.event.inputs.level != '' }}
         # run: |
         #   npm version ${{ github.event.inputs.level }}
         #   git push
       - uses: author/action-publish@stable
         with:
-        scan: "packages/*/"
+        scan: "./packages"
         env:
         REGISTRY_TOKEN: ${{ secrets.ADOBE_INCORRECT_NPM_TOKEN }}
