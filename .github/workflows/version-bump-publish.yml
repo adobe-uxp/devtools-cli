@@ -26,12 +26,12 @@ jobs:
           npm install
           npm test
       - name: bump and pub
-        if: ${{ github.event.inputs.level != '' }}
-        run: |
-          npm version ${{ github.event.inputs.level }}
-          git push
+        # if: ${{ github.event.inputs.level != '' }}
+        # run: |
+        #   npm version ${{ github.event.inputs.level }}
+        #   git push
       - uses: author/action-publish@stable
         with:
         scan: "packages/*/"
         env:
-        REGISTRY_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+        REGISTRY_TOKEN: ${{ secrets.ADOBE_INCORRECT_NPM_TOKEN }}
