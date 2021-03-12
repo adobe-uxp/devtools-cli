@@ -1,8 +1,15 @@
 name: version-bump-publish
 on:
-  push:
-    branches:
-      - apsharma/publish-all
+  workflow_dispatch:
+    inputs:
+      level:
+        description: '<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease'
+        required: true
+        default: 'patch'
+      tag:
+        description: 'The tag to publish to.'
+        required: false
+        default: 'latest'
 jobs:
   checkout:
     name: checkout
@@ -17,13 +24,8 @@ jobs:
           node-version: 10
       - run: |
           npm install
-      # - name: bump and pub
-        # if: ${{ github.event.inputs.level != '' }}
-        # run: |
-        #   npm version ${{ github.event.inputs.level }}
-        #   git push
       - uses: author/action-publish@stable
         with:
           scan: "./packages"
         env:
-          REGISTRY_TOKEN: ${{ secrets.ADOBE_INCORRECT_NPM_TOKEN }}
+          REGISTRY_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
