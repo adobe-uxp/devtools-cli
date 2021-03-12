@@ -1,15 +1,8 @@
 name: version-bump-publish
 on:
-  workflow_dispatch:
-    inputs:
-      level:
-        description: '<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease'
-        required: true
-        default: 'patch'
-      tag:
-        description: 'The tag to publish to.'
-        required: false
-        default: 'latest'
+  push:
+    branches:
+      - apsharma/publish-all
 jobs:
   checkout:
     name: checkout
