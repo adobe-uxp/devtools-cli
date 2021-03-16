@@ -32,8 +32,5 @@
     "ws": "^7.2.3",
     "archiver": "5.0.0",
     "ignore-walk": "^3.0.3"
-  },
-  "publishConfig": {
-    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-torq-release-local/"
   }
 }
