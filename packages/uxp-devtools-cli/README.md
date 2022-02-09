@@ -333,7 +333,7 @@ You can refer sample scripts available with the plugin init templates
 
 _After you have loaded the plugin using `uxp plugin load`_, you can execute the plugin tests with: 
 
-    $ uxp plugin test [--port <testService Port>] [--apps <appId>]
+    $ uxp plugin test [--port <testService Port>] [--appId <appId>]
     
 Once tests are executed, the test reports can be seen on the console. Note: The test reports, depend on the reporting module that you choose with the automation framework(WDIO).
 
@@ -362,10 +362,10 @@ Port at which the UXP testService starts. Default value: 4797
 
     $ uxp plugin test --port 4789 
 
-**--apps**
+**--appId**
 Single App ID into which the plugin's test should be executed.The supported app IDs can be retrieved using `uxp apps list`. The default action is to execute test on the first host app specified in the plugin's manifest.
 
-    $ uxp plugin test --apps XD
+    $ uxp plugin test --appId XD
  
 ### Plugin package
 
