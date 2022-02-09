@@ -1,0 +1,56 @@
+{
+  "name": "@adobe/uxp-inspect-frontend",
+  "productName": "Adobe UXP Developer Tool",
+  "appMenuName": "Adobe UXP Developer Tool",
+  "version": "1.5.1",
+  "main": "main/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adobe-uxp/devtools-cli.git",
+    "directory": "packages/uxp-inspect-frontend"
+  },
+  "author": "Adobe Inc",
+  "license": "Apache-2.0",
+  "scripts": {
+    "cleanup": "rimraf dist/",
+    "package": "yarn cleanup && electron-builder --dir",
+    "package-arm64": "export build_arch=arm64 && yarn cleanup && electron-builder --dir --arm64",
+    "postinstall": "node scripts/setup.js"
+  },
+  "build": {
+    "productName": "Adobe UXP Developer Tool",
+    "removePackageScripts": "false",
+    "appId": "com.adobe.uxp.inspect.app",
+    "files": [
+      "main/",
+      "src/"
+    ],
+    "mac": {
+      "target": "dir",
+      "icon": "resources/icons/app/icon.icns",
+      "category": "public.app-category.developer-tools",
+      "identity": null
+    },
+    "win": {
+      "target": "dir",
+      "icon": "resources/icons/app/icon.ico",
+      "signAndEditExecutable": true
+    },
+    "directories": {
+      "buildResources": "resources"
+    },
+    "publish": null,
+    "npmRebuild": true
+  },
+  "devDependencies": {
+    "tar": "^6.0.1",
+    "electron": "11.2.0",
+    "electron-builder": "22.10.5",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "fs-extra": "^9.0.1",
+    "minimist": "^1.2.5"
+  }
+}

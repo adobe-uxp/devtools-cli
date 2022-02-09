@@ -37,7 +37,9 @@ class ServiceMgr {
     }
 
     handleAppQuit() {
-        this._server.broadcastEvent("UDTAppQuit");
+        if (this._server) {
+            this._server.broadcastEvent("UDTAppQuit");
+        }
     }
 }
 

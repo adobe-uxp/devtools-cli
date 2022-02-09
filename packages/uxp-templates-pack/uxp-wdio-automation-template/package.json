@@ -1,0 +1,19 @@
+{
+  "name": "@adobe/uxp-wdio-automation-template",
+  "version": "1.0.0",
+  "description": "A starter automation project created using WebDriverIO framework",
+  "main": "index.js",
+  "scripts": {
+    "uxp-plugin-tests": "npx wdio wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/cli": "^7.5.1",
+    "@wdio/local-runner": "^7.5.1",
+    "@wdio/mocha-framework": "^7.4.6",
+    "@wdio/spec-reporter": "^7.4.3",
+    "webdriverio":"7.6.0"
+  }
+}

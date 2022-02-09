@@ -49,7 +49,15 @@
                         "es-ES": "Show Alert (ES)"
                     }
                 }
+            ],
+            "icons": [
+                { "width": 32, "height": 32, "path": "icons/icon_D.png", "scale": [ 1, 2 ], "theme": [ "dark", "darkest" ], "species": [ "generic" ] },
+                { "width": 32, "height": 32, "path": "icons/icon_N.png", "scale": [ 1, 2 ], "theme": [ "lightest", "light" ], "species": [ "generic" ] }
             ]
         }
+    ],
+    "icons": [
+        { "width": 32, "height": 32, "path": "icons/icon_D.png", "scale": [ 1, 2 ], "theme": [ "dark", "darkest" ], "species": [ "generic" ] },
+        { "width": 32, "height": 32, "path": "icons/icon_N.png", "scale": [ 1, 2 ], "theme": [ "lightest", "light" ], "species": [ "generic" ] }
     ]
 }

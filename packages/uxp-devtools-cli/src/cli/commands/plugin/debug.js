@@ -23,10 +23,7 @@ const debugOptions = {
 
 function launchCDTInspectWindow(cdtDebugWsUrl, pluginInfo, appInfo, forConsole) {
     const cdtDetails = {
-        app: {
-            name: appInfo.appName,
-            version: appInfo.appVersion
-        },
+        app: appInfo,
         plugin: pluginInfo,
         consoleOnly: forConsole
     };
@@ -50,7 +47,7 @@ function handlePluginDebugCommand(args) {
     return prom.then((debugUrls) => {
         const proms = [];
         debugUrls.forEach(debugData => {
-            const appInfo = debugData.cdtAppInfo;
+            const appInfo = debugData.appInfo;
             const wsdebugUrl = debugData.cdtDebugWsUrl;
             const prom = launchCDTInspectWindow(wsdebugUrl, pluginSession.pluginInfo, appInfo, forConsole);
             proms.push(prom);

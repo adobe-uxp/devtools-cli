@@ -50,8 +50,7 @@ class PluginDebugCommand extends PluginBaseCommand {
     _handlePluginDebugResult(commandResults) {
         const debugUrls = commandResults.map((result) => {
             return {
-                app: result.app,
-                cdtAppInfo: result.data.appInfo,
+                appInfo: result.app,
                 cdtDebugWsUrl: result.data.wsdebugUrl,
                 chromeDevToolsUrl: result.data.chromeDevToolsUrl
             };

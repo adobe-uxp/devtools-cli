@@ -23,6 +23,7 @@ const WebSocket = require("ws");
 
 const PluginSessionMgr = require("./PluginSessionMgr");
 const FeatureConfigMgr = require("./FeatureConfigMgr");
+const kBrowserCDTSocketEndPoint = "/socket/browser_cdt/";
 
 class Server extends EventEmitter {
     constructor(port) {
@@ -66,6 +67,9 @@ class Server extends EventEmitter {
     _getClientClassForUrl(url) {
         if (url === "/socket/cli") {
             return require("./clients/UxpCliClient");
+        }
+        if (url.includes(kBrowserCDTSocketEndPoint)) { // sample url:  /socket/browser_cdt/?adobe-uxp-app-id=PS"
+            return require("./clients/BrowserCDTClient");
         }
         if (url.startsWith("/socket/cdt/")) {
             return require("./clients/CDTClient");
@@ -153,8 +157,8 @@ class Server extends EventEmitter {
             const { port: newPort } = this._httpServer.address();
             // log(`Server listening on port ${newPort} ... `);
             this._port = newPort;
-
             this.updateIpAddress();
+            this._defineChromeInspectEndPoints();
         });
 
         try {
@@ -163,6 +167,29 @@ class Server extends EventEmitter {
         catch (err) {
             onError(err);
         }
+    }
+
+    _defineChromeInspectEndPoints() {
+        this._app.get("/json/version", (request, response) => {
+            let localBrowserSocketEndpoint = this.localSocketUrl + kBrowserCDTSocketEndPoint;
+            let browserEndPoint = {
+                "Browser": "Adobe UXP/1.0.0",
+                "Protocol-Version": "1.3",
+                "User-Agent": "Adobe UXP UDT CLI 1.0.0",
+                "V8-Version": "8.3",
+                "webSocketDebuggerUrl": localBrowserSocketEndpoint
+            };
+            response.json(browserEndPoint);
+        });
+        this._app.get("/json/list", (request, response) => {
+            response.writeHead(200, { "Content-Type": "application/json" });
+            /*
+            * send empty list - for now, we are not listing the devtools plugins as page targets yet.
+            * if we want to support this - we need to get the CDTClient end-points of all the currently
+            * loaded plugins and then send their details here.
+            */
+            response.write(JSON.stringify({}));
+        });
     }
 
     updateIpAddress() {

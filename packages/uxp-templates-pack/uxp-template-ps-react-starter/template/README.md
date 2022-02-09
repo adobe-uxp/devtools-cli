@@ -4,24 +4,26 @@ This plugin is a good place to get started when building a Photoshop plugin usin
 
 ## Install dependencies
 
-First, make sure that `yarn` is installed on your system.
+First, make sure that `npm` is installed on your system.
+
+After you ensure that your terminal is in the root of this project, use `npm` to install the various dependencies needed:
 
 ```
-npm install -g yarn
+npm install
 ```
 
-Then, after you ensure that your terminal is in the root of this project, use `yarn` to install the various dependencies needed:
+If you prefer to use `yarn`, after you generate the `package-lock.json` file you can run the following line to import dependencies to a `yarn.lock` file: 
 
 ```
-yarn install
+yarn import
 ```
 
 ## Build Process
 
 There are two ways to build the plugin for use in Photoshop:
 
-* `yarn watch` will build a development version of the plugin, and recompile everytime you make a change to the source files. The result is placed in `dist` folder. 
-* `yarn build` will build a production version of the plugin and place it in `dist` folder. It will not update every time you make a change to the source files.
+* `yarn watch` (or `npm watch`) will build a development version of the plugin, and recompile everytime you make a change to the source files. The result is placed in `dist` folder. 
+* `yarn build` (or `npm build`) will build a production version of the plugin and place it in `dist` folder. It will not update every time you make a change to the source files.
 
 > You **must** run either `watch` or `build` prior to trying to use within Photoshop!
 
@@ -37,3 +39,6 @@ Once added, you can load it into Photoshop by clicking the ••• button on t
 
 This plugin doesn't do much, but does illustrate how to create two panels in Photoshop with `entrypoints.setup`, and how to create flyout menus. It also demonstrates the use of several Spectrum UXP widgets to create a simple color picker in the primary panel.
 
+### Common Issues 
+
+If you're getting errors with `npm install`, we can reinstall the project dependencies. Let's first make sure to delete `node_modules/*` from the `template` folder as well as the `package-lock.json` and `yarn.lock` file. Staying in the `template` directory, run `npm install` again and this will regenerate your `package-lock.json` file. 

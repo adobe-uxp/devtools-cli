@@ -42,7 +42,7 @@ function waitForKey(keyNames) {
     return deferred.promise;
 }
 
-function promptUserForTermsAccept(enable) {
+function promptUserForTermsAccept(enable, runningStatus = false) {
     if (enable) {
         console.log(`\nAdministrator privileges are needed to enable UXP Developer Tools on this system. By continuing you agree to `);
         console.log(`1) Adobe's Terms of Use: https://www.adobe.com/legal/terms.html`);
@@ -50,6 +50,9 @@ function promptUserForTermsAccept(enable) {
     }
     else {
         console.log(`\nAdministrator privileges are needed to disable UXP Developer Tools on this system`);
+        if(runningStatus.success) {
+            console.log(`\nUXP service is running on port <${runningStatus.port}> which will be terminated by this command. Do you want to continue?`);
+        }
     }
 
     console.log("Press Enter to Continue...");
@@ -78,16 +81,21 @@ const enableCommand = {
 };
 
 function handleDisableCommand() {
-    const prom = promptUserForTermsAccept(false);
-    return prom.then((accept) => {
-        if (accept) {
-            return this.app.server.disableDevTools();
-        }
-        return false;
-    }).then((result) => {
-        if (result) {
-            console.log("UXP Developer Tools is Disabled now.");
-        }
+    this.app.server.isServiceRunning().then((result) => {
+        const prom = promptUserForTermsAccept(false, result);
+        return prom.then((accept) => {
+            if (accept) {
+                const options = {
+                    port: result.port
+                };
+                return this.app.server.disableDevTools(options);
+            }
+            return false;
+        }).then((result) => {
+            if (result) {
+                console.log("UXP Developer Tools is Disabled now.");
+            }
+        });
     });
 }
 

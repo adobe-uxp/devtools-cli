@@ -1,0 +1,15 @@
+/*
+ *  Copyright 2020 Adobe Systems Incorporated. All rights reserved.
+ *  This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License. You may obtain a copy
+ *  of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software distributed under
+ *  the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ *  OF ANY KIND, either express or implied. See the License for the specific language
+ *  governing permissions and limitations under the License.
+ *
+ */
+
+var IS_ENABLED = "function(){return function(){function d(a,b){function c(){}c.prototype=b.prototype;a.g=b.prototype;a.prototype=new c};function f(a){for(var b=1;b<arguments.length;b++)var c=String(arguments[b]).replace(/\\$/g,\"$$$$\"),a=a.replace(/\\%s/,c);return a};function g(a,b){this.code=a;this.message=b||\"\";this.name=h[a]||h[13];var c=Error(this.message);c.name=this.name;this.stack=c.stack||\"\"}d(g,Error);\nvar h={7:\"NoSuchElementError\",8:\"NoSuchFrameError\",9:\"UnknownCommandError\",10:\"StaleElementReferenceError\",11:\"ElementNotVisibleError\",12:\"InvalidElementStateError\",13:\"UnknownError\",15:\"ElementNotSelectableError\",19:\"XPathLookupError\",23:\"NoSuchWindowError\",24:\"InvalidCookieDomainError\",25:\"UnableToSetCookieError\",26:\"ModalDialogOpenedError\",27:\"NoModalDialogOpenError\",28:\"ScriptTimeoutError\",32:\"InvalidSelectorError\",33:\"SqlDatabaseError\",34:\"MoveTargetOutOfBoundsError\"};\ng.prototype.toString=function(){return\"[\"+this.name+\"] \"+this.message};function i(a){this.stack=Error().stack||\"\";if(a)this.message=String(a)}d(i,Error);i.prototype.name=\"CustomError\";function j(a,b){b.unshift(a);i.call(this,f.apply(null,b));b.shift();this.f=a}d(j,i);j.prototype.name=\"AssertionError\";function k(a,b){if(typeof a==\"string\"){if(typeof b!=\"string\"||b.length!=1)return-1;return a.indexOf(b,0)}for(var c=0;c<a.length;c++)if(c in a&&a[c]===b)return c;return-1};function l(a,b,c,e,o){this.b=!!b;if(a&&(this.a=a))this.c=typeof e==\"number\"?e:this.a.nodeType!=1?0:this.b?-1:1;this.d=o!=void 0?o:this.c||0;this.b&&(this.d*=-1);this.e=!c}d(l,function(){});l.prototype.a=null;l.prototype.c=0;d(function(a,b,c,e){l.call(this,a,b,c,null,e)},l);var m={\"class\":\"className\",readonly:\"readOnly\"},n=[\"checked\",\"disabled\",\"draggable\",\"hidden\"],p=[\"BUTTON\",\"INPUT\",\"OPTGROUP\",\"OPTION\",\"SELECT\",\"TEXTAREA\"];function q(a){var b=a.tagName.toUpperCase();if(!(k(p,b)>=0))return!0;var c;c=m.disabled||\"disabled\";var e=a[c];c=e===void 0&&k(n,c)>=0?!1:e;if(c)return!1;if(a.parentNode&&a.parentNode.nodeType==1&&\"OPTGROUP\"==b||\"OPTION\"==b)return q(a.parentNode);return!0};var r=q,s=\"_\".split(\".\"),t=this;!(s[0]in t)&&t.execScript&&t.execScript(\"var \"+s[0]);for(var u;s.length&&(u=s.shift());)!s.length&&r!==void 0?t[u]=r:t=t[u]?t[u]:t[u]={};; return this._.apply(null,arguments);}.apply({navigator:typeof window!='undefined'?window.navigator:null}, arguments);}";
+module.exports = IS_ENABLED;

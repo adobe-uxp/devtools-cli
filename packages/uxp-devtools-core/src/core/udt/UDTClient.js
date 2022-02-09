@@ -42,6 +42,10 @@ class UxpDevToolsClient {
         this._pluginMgr.registerPluginStateListener(listener);
     }
 
+    registerHostAppLogListener(listener) {
+        this._pluginMgr.registerHostAppLogListener(listener);
+    }
+
     connectedApps() {
         return this._pluginMgr.getConnectedApps();
     }
@@ -58,6 +62,10 @@ class UxpDevToolsClient {
 
     debugPlugin(pluginSession, params) {
         return this._pluginMgr.debugPlugin(pluginSession, params);
+    }
+
+    refreshList() {
+        return this._pluginMgr.refreshList();
     }
 
     unloadPlugin(pluginSession, params) {
@@ -80,9 +88,21 @@ class UxpDevToolsClient {
         return this._pluginMgr.packagePlugin(params);
     }
 
+    setupTest(params) {
+        return this._pluginMgr.setupPluginTest(params);
+
+    }
+
+    executeTest(pluginSession, params) {
+        params["servicePort"] = this._servicePort;
+        return this._pluginMgr.executePluginTest(pluginSession, params);
+    }
+
+
     connect() {
         const prom = this.getServicePort();
         return prom.then((port) => {
+            this._servicePort  = port;
             return this._pluginMgr.connectToService(port);
         });
     }

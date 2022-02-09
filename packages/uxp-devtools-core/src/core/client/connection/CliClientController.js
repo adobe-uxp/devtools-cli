@@ -37,6 +37,10 @@ class CliClientController {
         this._pluginStateListener = listener;
     }
 
+    registerHostAppLogListener(listener) {
+        this._hostAppLogListener = listener;
+    }
+
     onConnectionReady() {
         UxpLogger.log(`Connected to UXP Developer Tool Service at port ${this._port}`);
         if (this._callerPromise) {
@@ -152,6 +156,12 @@ class CliClientController {
     handlePluginUnload(data) {
         if (this._pluginStateListener) {
             this._pluginStateListener("pluginUnloaded", data.plugin);
+        }
+    }
+
+    handleHostAppLog(data) {
+        if (this._hostAppLogListener) {
+            this._hostAppLogListener("hostAppLog", data);
         }
     }
 

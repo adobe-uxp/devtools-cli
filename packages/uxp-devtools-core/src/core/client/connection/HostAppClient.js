@@ -14,13 +14,14 @@
 class HostAppClient {
     constructor(data) {
         this.id = data.id;
-        if (!data.app || !data.app.appId || !data.app.appVersion) {
+        if (!data.app || !data.app.appId || !data.app.appVersion || !data.app.uxpVersion) {
             UxpLogger.verbose("HostAppClient: data doesn't contain the required app details in it");
         }
         this.appEndPoint = {
             id: data.app.appId,
             version: data.app.appVersion,
             name: data.app.appName,
+            uxpVersion: data.app.uxpVersion
         };
     }
 

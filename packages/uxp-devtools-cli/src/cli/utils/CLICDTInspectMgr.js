@@ -16,7 +16,7 @@ const process = require("process");
 const { createDeferredPromise } = require("./common");
 
 function getDevtoolsAppExecutablePath() {
-    let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-devtools-app/package.json");
+    let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-inspect-frontend/package.json");
     uxpDevtoolAppDir = path.dirname(uxpDevtoolAppDir);
 
     const productName = "Adobe UXP Developer Tool";
@@ -44,7 +44,13 @@ function lauchDevtoolsInspectApp(cdtDebugWsUrl, details) {
 
     const args = [ "./main/index.js", a1, a2 ];
 
-    const child = child_process.execFile(getDevtoolsAppExecutablePath(), args, { stdio: "inherit" });
+    const child = child_process.execFile(getDevtoolsAppExecutablePath(), args, (err, stdout, stderr) => {
+        if (err) {
+            throw err;
+        }
+        console.log(stdout);
+        console.log(stderr);
+    });
     const deferred = createDeferredPromise();
 
     child.on("error", (err) => {

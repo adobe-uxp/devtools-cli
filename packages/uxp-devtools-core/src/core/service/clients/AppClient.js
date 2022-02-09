@@ -17,7 +17,8 @@ const path = require("path");
 const fs = require("fs-extra");
 const _ = require("lodash");
 
-const LOAD_TIMEOUT = 1500;
+const LOAD_TIMEOUT = 5000;
+const REFRESH_LIST_TIMEOUT = 1500;
 const SANDBOX_UDT_PLUGINS_WORKSPACE = "UDTPlugins";
 
 function fetchPluginIdFromManifest(pluginPath) {
@@ -138,13 +139,32 @@ class AppClient extends Client {
         this._server.broadcastEvent("didPluginUnloaded", plugin);
     }
 
-    msg_UXP(message) {
-        const plugin = this._getPluginForMessage(message);
-        if (!plugin) {
+    _handleHostAppLog(msg) {
+        const { level, message } = msg;
+        if (!(level && message && this.appInfo)) {
             return;
         }
+        const { appId, appName, appVersion, uxpVersion } = this.appInfo;
+        const data = { level, message, appInfo : { appId, appName, appVersion, uxpVersion } };
+        this._server.broadcastEvent("hostAppLog", data);
+    }
+
+    msg_UXP(message) {
         if (message.action === "unloaded") {
+            const plugin = this._getPluginForMessage(message);
+            if (!plugin) {
+                return;
+            }
             this._handlePluginUnloadCommon(plugin);
+        }
+        else if (message.action === "log") {
+            this._handleHostAppLog(message);
+        }
+    }
+
+    msg_CDTBrowser(message) {
+        if (this._browserCDTClient) {
+            this._browserCDTClient.sendRaw(message.cdtMessage);
         }
     }
 
@@ -202,15 +222,6 @@ class AppClient extends Client {
         return message;
     }
 
-    _getAppInfo() {
-        const info = this.appInfo;
-        return {
-            appId: info.appId,
-            appName: info.appName,
-            appVersion: info.appVersion
-        };
-    }
-
     _handlePluginDebugRequest(message, callback) {
         const clientSessionId = message.pluginSessionId;
         const msgWithSession = this._createMessageWithPluginSession(message, callback);
@@ -225,10 +236,43 @@ class AppClient extends Client {
         const cdtWSDebugUrl = `${wsServerUrl}/socket/cdt/${clientSessionId}`;
         response.wsdebugUrl = `ws=${cdtWSDebugUrl}`;
         response.chromeDevToolsUrl = `devtools://devtools/bundled/inspector.html?experiments=true&ws=${cdtWSDebugUrl}`;
-        response.appInfo = this._getAppInfo();
         callback(null, response);
     }
 
+    sendBrowserCDTMessage(cdtMessage) {
+        const message = {
+            command: "CDTBrowser",
+            action: "cdtMessage",
+            cdtMessage,
+        };
+        this.send(message);
+    }
+
+    handleBrowserCDTConnected(browserClient) {
+        this._browserCDTClient = browserClient;
+        const message = {
+            command: "CDTBrowser",
+            action: "cdtConnected",
+        };
+        this.sendRequest(message, (err, reply) => {
+            if (reply.error) {
+                UxpLogger.error(`Browser CDTConnected message failed with error ${reply.error}`);
+            }
+        });
+    }
+
+    handleBrowserCDTDisconnected() {
+        this._browserCDTClient = null;
+        const message = {
+            command: "CDTBrowser",
+            action: "cdtDisconnected",
+        };
+        this.sendRequest(message, (err, reply) => {
+            if (reply.error) {
+                UxpLogger.error(`Browser CDTConnected message failed with error ${reply.error}`);
+            }
+        });
+    }
     _fetchInstalledPluginsList() {
         return new Promise((resolve) => {
             const discoverPluginsMessage = {
@@ -273,6 +317,19 @@ class AppClient extends Client {
         prom.then((installedPaths) => {
             this._verifyAndLoad(loadMessage, installedPaths, callback, existingClientSessionId);
         });
+    }
+
+    _handlePluginListRequest(message, callback) {
+        const requestId = this.sendRequest(message, (err, reply) => {
+            if (err) {
+                callback(err, reply);
+                return;
+            }
+            console.log(JSON.stringify(reply, null, 2));
+            callback(err, reply);
+        });
+        this.handleRequestTimeout("refresh list", requestId, REFRESH_LIST_TIMEOUT);
+
     }
 
     _getPluginDetailsFromPluginSession(clientSessionId) {
@@ -424,6 +481,9 @@ class AppClient extends Client {
         const { action } = message;
         if (action === "load") {
             this._handlePluginLoadRequest(message, callback);
+        }
+        else if (action === "list") {
+            this._handlePluginListRequest(message, callback);
         }
         else if (action === "debug") {
             this._handlePluginDebugRequest(message, callback);

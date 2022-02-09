@@ -1,0 +1,28 @@
+{
+    "name": "@adobe/uxp-devtools-feature",
+    "version": "1.5.0",
+    "description": "UXP Devtools Feature Config Module",
+    "main": "src/index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:adobe-uxp/devtools-cli.git",
+      "directory": "packages/uxp-devtools-feature"
+    },
+    "keywords": [
+      "adobe",
+      "uxp",
+      "devtools",
+      "plugin",
+      "core"
+    ],
+    "author": "Adobe Inc",
+    "license": "Apache-2.0",
+    "dependencies": {
+    },
+    "publishConfig": {
+      "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-torq-release-local/"
+    }
+}
