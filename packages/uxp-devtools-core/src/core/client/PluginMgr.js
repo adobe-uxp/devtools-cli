@@ -19,6 +19,10 @@ const PluginLogCommand = require("./plugin/actions/PluginLogCommand");
 const PluginValidateCommand = require("./plugin/actions/PluginValidateCommand");
 const PluginUnloadCommand = require("./plugin/actions/PluginUnloadCommand");
 const PluginPackageCommand = require("./plugin/actions/PluginPackageCommand");
+const RefreshListCommand = require("./plugin/actions/RefreshListCommand");
+const PluginTestCommand = require("./plugin/actions/PluginTestCommand");
+const PluginTestSetupCommand = require("./plugin/actions/PluginTestSetupCommand");
+
 
 const PluginSession = require("./plugin/PluginSession");
 
@@ -40,6 +44,15 @@ class PluginMgr {
         this._cliClientMgr.registerPluginStateListener(listener);
     }
 
+    registerHostAppLogListener(listener) {
+        this._cliClientMgr.registerHostAppLogListener(listener);
+    }
+
+    refreshList() {
+        const refreshListCommand = new RefreshListCommand(this);
+        return refreshListCommand.execute();
+    }
+
     debugPlugin(pluginSession, params) {
         const debugCommand = new PluginDebugCommand(this, params);
         debugCommand.pluginSession = pluginSession;
@@ -57,6 +70,18 @@ class PluginMgr {
         const reloadCommand = new PluginReloadCommand(this, params);
         reloadCommand.pluginSession = pluginSession;
         return reloadCommand.execute();
+    }
+
+    executePluginTest(pluginSession, params) {
+        const pluginTestCommand = new PluginTestCommand(this, params);
+        pluginTestCommand.pluginSession = pluginSession;
+        return pluginTestCommand.execute();
+    }
+
+    setupPluginTest(params) {
+        const pluginTestSetupCommand = new PluginTestSetupCommand(this, params);
+        return pluginTestSetupCommand.execute();
+
     }
 
     validatePluginManifest(params) {

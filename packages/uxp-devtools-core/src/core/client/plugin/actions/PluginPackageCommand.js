@@ -157,11 +157,12 @@ class PluginPackageCommand extends PluginBaseCommand {
 
         const ignoredFiles = [ ".uxprc", ".gitignore", "yarn.lock", ".npmignore", ".DS_Store", "manifest.json", "package-lock.json" ];
         files = files.filter(function(file) {
-            return !ignoredFiles.includes(file);
+            const fileName = file.substr(file.lastIndexOf("/") + 1);
+            return !(ignoredFiles.includes(fileName) || fileName.startsWith("."));
         });
 
         files = files.filter(function(file) {
-            return !(file.endsWith(".ccx") || file.endsWith(".xdx"));
+            return !(file.endsWith(".ccx") || file.endsWith(".xdx") || file.startsWith("uxp-plugin-tests"));
         });
 
         return files;

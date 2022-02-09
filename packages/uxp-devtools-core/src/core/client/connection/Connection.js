@@ -96,6 +96,10 @@ class Connection extends EventEmitter {
         this.cliController.handlePluginUnload(data);
     }
 
+    msg_hostAppLog(data) {
+        this.cliController.handleHostAppLog(data.details);
+    }
+
     _rejectClientCallbacks(clientId) {
         this._callbacks.forEach((val, key) => {
             if (val.clientId === clientId) {

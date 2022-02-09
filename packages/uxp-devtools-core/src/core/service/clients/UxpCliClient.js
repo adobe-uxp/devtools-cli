@@ -57,6 +57,13 @@ class UxpCliClient extends Client {
         });
     }
 
+    on_hostAppLog(data) {
+        this.send({
+            command: "hostAppLog",
+            details: data
+        });
+    }
+
     on_clientDidDisconnect(client) {
         if (client.type === "app" && client.isInitialized) {
             this.send({

@@ -13,6 +13,7 @@
 
 const ServiceMgr = require("../service/ServiceMgr");
 const DevToolsMgr = require("../common/DevToolsMgr");
+const kill = require("../common/KillProcess");
 
 class UxpDevToolsServer {
     constructor() {
@@ -25,7 +26,22 @@ class UxpDevToolsServer {
     }
 
     disableDevTools(options = null) {
-        return this._devToolsMgr.disableDevTools(options);
+        return this._devToolsMgr.disableDevTools(options).then(() => {
+            if(options.port) {
+                return kill(options.port, "tcp");
+            }
+        });
+    }
+
+    isServiceRunning() {
+        const result = { success: false };
+        return this._devToolsMgr.discoverServicePort().then((port) => {
+            result.success = true;
+            result.port = port;
+            return result;
+        }).catch(() => {
+            return result;
+        });
     }
 
     isDevToolsEnabled() {

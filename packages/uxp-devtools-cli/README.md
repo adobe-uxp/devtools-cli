@@ -5,8 +5,8 @@
 - [Getting started](#getting-started)
     * [Software requirements](#software-requirements)
     * [Installation](#installation)
-        + [Installation via package manager (work in progress)](#installation-via-package-manager-work-in-progress)
         + [Manual installation](#manual-installation)
+        + [Installation via package manager (work in progress)](#installation-via-package-manager-work-in-progress)
     * [Quick start guide](#quick-start-guide)
     * [Help commands](#help-commands)
 - [Commands](#commands)
@@ -19,6 +19,7 @@
         + [Reloading a plugin](#reloading-a-plugin)
         + [Debugging a plugin](#debugging-a-plugin)
         + [Plugin logs](#plugin-logs)
+        + [Plugin Test](#plugin-test)
 - [Contributing](#contributing)
 - [Licensing](#licensing)
 
@@ -26,18 +27,13 @@
 
 ## Software requirements
 
-- Yarn version >= 1.5
-- Node version >= 10.16
+- Yarn version >= 1.13
+- Node version >= 12.19.1
 - Git
 
 (Devtools helper uses N-API v4. Node version and N-API compatibility matrix is available [here](https://nodejs.org/api/n-api.html#n_api_n_api_version_matrix).)
 
 ## Installation
-
-### Installation via package manager (work in progress)
-
-    npm install @adobe/uxp-devtools-cli
-
 
 ### Manual installation
 
@@ -72,6 +68,14 @@ Note: Installation will work on node running in Intel emulation mode (`x64`).
 - Either clone this repository to your local machine or download and extract the zip
 - `cd` into the resulting `uxp-developer-tools` directory
 - Run `yarn install`
+
+### Installation via package manager (work in progress)
+
+    npm install @adobe/uxp-devtools-cli
+
+or
+
+    yarn add @adobe/uxp-devtools-cli
 
 ## Quick start guide
 
@@ -301,6 +305,68 @@ This command launches a plugin console window where logs can be viewed
 
     $ uxp plugin logs 
 
+
+### Plugin test
+You can now execute execute plugin's functional tests in UXP CLI v1.3 and above. This support is available for Adobe Applications integrated with **UXP 5.0** and above. The following CLI commands can be used to get you started with writing and executing tests for your plugin. 
+
+#### Plugin test setup 
+
+The intial automation setup can be done using this command:
+
+    $ uxp plugin test --setup
+
+The default project uses [WebDriverIO](https://webdriver.io/docs/gettingstarted) framework  
+
+* This command will create a folder named **"uxp-plugin-tests"** and install the required dependencies to execute the testsuite. 
+
+* You can automate your plugin's UI by adding more tests in the folder location **"uxp-plugin-tests"**.
+(sub-folders are configurable. Eg. [specs](../uxp-templates-pack/uxp-wdio-automation-template/wdio.conf.js) )
+
+##### Sample Scripts
+
+You can refer sample scripts available with the plugin init templates 
+
+* uxp-template-ps-starter : [PopulateButtonTest](../uxp-templates-pack/uxp-template-ps-starter/template/uxp-plugin-tests/sample-tests/specs/PopulateButtonTest.js)
+* uxp-template-default-starter-ps : [ChangeColorTest](../uxp-templates-pack/uxp-template-default-starter-ps/template/uxp-plugin-tests/sample-tests/specs/ChangeColorTest.js)
+
+#### Execute test 
+
+_After you have loaded the plugin using `uxp plugin load`_, you can execute the plugin tests with: 
+
+    $ uxp plugin test [--port <testService Port>] [--appId <appId>]
+    
+Once tests are executed, the test reports can be seen on the console. Note: The test reports, depend on the reporting module that you choose with the automation framework(WDIO).
+
+Note: The plugin should be loaded to execute the tests. Currently, on `uxp plugin load`, Ps loads the plugin UI and XD   adds to the plugin panel. To execute tests on XD open the plugin manually and then run the command. 
+
+#### For Advanced Users
+
+ Client can choose any javascript automation framework of their choice.
+ 
+* Create a folder **uxp-plugin-tests** inside plugin folder
+
+    $ mkdir uxp-plugin-tests
+    $ cd uxp-plugin-tests
+
+* Add framework files to the folder "uxp-plugin-tests" and run `yarn install` to install the needed dependencies.
+
+* Arguments such as driverPort, servicePort & app-id are needed to create a connection between plugin and UXP CLI. Ref. [wdio.conf.js](../uxp-templates-pack/uxp-wdio-automation-template/wdio.conf.js)
+
+* The command to execute the testSuite should be mentioned at "uxp-plugin-tests" in [package.json](../uxp-templates-pack/uxp-wdio-automation-template/package.json) of the automation project.
+
+
+##### Options
+
+**--port**
+Port at which the UXP testService starts. Default value: 4797
+
+    $ uxp plugin test --port 4789 
+
+**--appId**
+Single App ID into which the plugin's test should be executed.The supported app IDs can be retrieved using `uxp apps list`. The default action is to execute test on the first host app specified in the plugin's manifest.
+
+    $ uxp plugin test --appId XD
+ 
 ### Plugin package
 
 _After you have created your plugin , you can package your plugin using this command.

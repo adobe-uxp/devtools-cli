@@ -16,6 +16,4 @@ UXP Devtools is a standard tool for rapid Adobe UXP plugin development. UXP Devt
 | Illustrator        | Not available yet                                     |
 | XD                 | XD 36 or higher in Mac and XD 38 or higher in windows |
 
-`UXP Devtools` are available in form of CLI and Standalone application both. For more about details about [CLI](./packages/uxp-devtools-cli/README.md) and [Application](./packages/uxp-devtools-app/README.md) visit README file.
-
-
+`UXP Devtools` are available in form of CLI and Standalone application both. Refer the links for more about details about [CLI](./packages/uxp-devtools-cli/README.md) and [Application](https://www.adobe.io/photoshop/uxp/devtool/installation/)

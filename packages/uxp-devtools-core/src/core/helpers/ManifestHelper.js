@@ -22,6 +22,16 @@ class ManifestHelper {
         return report.manifest;
     }
 
+    static readManifest(manifestPath) {
+        if (!fs.existsSync(manifestPath)) {
+            return {};
+        }
+
+        const contents = fs.readFileSync(manifestPath, "utf8");
+        const manifestJson = JSON.parse(contents);
+        return { manifest: manifestJson };
+    }
+
     static validateManifest(manifestPath, command) {
         if (!fs.existsSync(manifestPath)) {
             const isValid = false;

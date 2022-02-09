@@ -28,6 +28,35 @@ CoreErrorCodes.PLUIGN_VALIDATE_FAILED = 7;
 CoreErrorCodes.NO_APPS_CONNECTED_TO_SERVICE = 8;
 CoreErrorCodes.PLUGIN_NO_APPLICABLE_APPS = 9;
 
+
+// Add Plugin
+CoreErrorCodes.NO_MANIFEST = "ERR2_NOMANIFEST";
+CoreErrorCodes.ALREADY_ADDED = "ERR2_DUPLICATEPLUGIN";
+CoreErrorCodes.INVALID_MANIFEST = "ERR2_INVALIDMANIFEST";
+CoreErrorCodes.INVALID_PARAM = "ERR2_INVALIDPARAM";
+CoreErrorCodes.GENERIC_ADDFAIL = "ERR2_ADDFAIL";
+CoreErrorCodes.DIALOG_CANCELLED = "ERR2_DIALOGCANCELLED";
+
+CoreErrorCodes.ENABLE_DEVTOOLS_FAIL = "ERR1_ENABLEDEVTOOLSFAIL";
+// Create Plugin
+CoreErrorCodes.INVALID_PERMISSIONS = "ERR4_DIRPERM";
+CoreErrorCodes.NONEMPTY_DIRECTORY = "ERR4_NONEMPTY_DIRECTORY";
+CoreErrorCodes.GENERIC_CREATE_FAIL = "ERR4_CREATEFAIL";
+
+// Debug Plugin
+CoreErrorCodes.GENERIC_DEBUG_FAIL = "ERR5_DEBUGFAIL";
+// Load Plugin
+CoreErrorCodes.GENERIC_LOADFAIL = "ERR3_LOADFAIL";
+
+// Unload Plugin
+CoreErrorCodes.GENERIC_UNLOADFAIL = "ERR6_UNLOADFAIL";
+
+// Package Plugin
+CoreErrorCodes.GENERIC_PACKAGEFAIL = "ERR7_PACKAGEFAIL";
+
+// Reload Plugin
+CoreErrorCodes.GENERIC_RELOADFAIL = "ERR8_RELOADFAIL";
+
 // Success Messages
 CoreErrorCodes.PLUGIN_LOAD_SUCCESS = 1000;
 
@@ -65,6 +94,34 @@ User[EC.PLUGIN_DEBUG_SUCCESS] = "Plugin Debug Successfull";
 User[EC.INVALID_PERMISSIONS] = "User does not have valid permissions for the selected folder.";
 User[EC.NONEMPTY_DIRECTORY] = "The selected directory is non-empty.";
 
+
+
+// Add Plugin Fail messages
+
+User[EC.NO_MANIFEST ] = "Manifest File not found.";
+User[EC.ALREADY_ADDED ] = "Plugin with same id already exists in workspace";
+User[EC.INVALID_MANIFEST ] = "Invalid Manifest File.";
+User[EC.INVALID_PARAM ] = "Invalid plugin params.";
+User[EC.GENERIC_ADDFAIL ] = "Add Plugin Failed.";
+User[EC.DIALOG_CANCELLED ] = "Dialog Cancelled.";
+User[EC.ENABLE_DEVTOOLS_FAIL ] = "Failed to Enable Developer Mode.";
+
+
+// Create Plugin Fail messages
+
+User[EC.INVALID_PERMISSIONS ] = "Invalid Directory Permissions.";
+User[EC.NONEMPTY_DIRECTORY ] = "Directory Contains Conflicting Files.";
+User[EC.GENERIC_CREATE_FAIL ] = "Create Plugin Failed";
+
+// Debug Plugin
+User[EC.GENERIC_DEBUG_FAIL ] = "Debug Command Failed";
+User[EC.INVALID_DEBUG_SESSION ] = "Debug session does not exist for the plugin.Try relaunching the host application for plugin.";
+User[EC.GENERIC_LOADFAIL ] = "Plugin Load Failed.";
+User[EC.GENERIC_UNLOADFAIL ] = "Failed to unload plugin.";
+User[EC.GENERIC_RELOADFAIL ] = "Plugin Reload Failed.";
+
+// Package Plugin
+User[EC.GENERIC_PACKAGEFAIL ] = "Failed to package plugin.";
 
 
 // Internal Log Messages

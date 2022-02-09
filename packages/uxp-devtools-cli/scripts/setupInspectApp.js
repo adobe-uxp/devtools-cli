@@ -11,12 +11,10 @@ governing permissions and limitations under the License.
 
 const path = require("path");
 const { execSync } = require("child_process");
-const process = require("process");
 
 function generateDevtoolsAppPacakge() {
-    let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-devtools-app/package.json");
+    let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-inspect-frontend/package.json");
     uxpDevtoolAppDir = path.dirname(uxpDevtoolAppDir);
-    process.chdir(uxpDevtoolAppDir);
 
     execSync("yarn package", {
         cwd: uxpDevtoolAppDir,

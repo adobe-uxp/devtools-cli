@@ -1,0 +1,18 @@
+{
+  "name": "@adobe/uxp_web_driver",
+  "version": "2.2.1",
+  "main": "uxp_driver_export.js",
+  "scripts": {
+    "run": "node index.js",
+    "watch": "nodemon index.js",
+    "linter": "eslint --ext .js,.jsx lib,index.js",
+    "linter:fix": "eslint --ext .js,.jsx lib,index.js --fix"
+  },
+  "dependencies": {
+    "appium-base-driver": "5.8.1",
+    "jimp": "^0.14.0",
+    "puppeteer-core": "9.1.1",
+    "robotjs": "0.6.0",
+    "yargs": "^12.0.5"
+  }
+}

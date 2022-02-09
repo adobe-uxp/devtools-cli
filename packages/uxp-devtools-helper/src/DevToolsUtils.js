@@ -15,6 +15,9 @@
 const path = require("path");
 const fs = require("fs");
 const { exec } = require("child_process");
+const { FeatureFlag } = require("@adobe/uxp-devtools-feature");
+
+const isInternalBuild = FeatureFlag.isFeatureEnabled("internalPluginWorkspace");
 
 function createDeferredPromise() {
     const obj = {};
@@ -55,7 +58,8 @@ function getUxpDeveloperConfigFilePath() {
 // the scripts can't be run as-is  - for now, we are copying the scripts to a folder
 // which is passed as option by caller and execute those scripts - inside of the inline ones -
 function setupScriptsForExecution(scriptsFolder, isMac) {
-    const scriptName = isMac ? "mac.sh" : "win32.bat";
+    let scriptName =  isInternalBuild ? "internal_" : "";
+    scriptName = isMac ? scriptName + "mac.sh" : scriptName + "win32.bat";
     const macScriptPath = path.resolve(__dirname, "devtools", scriptName);
 
     const scriptDestPath = path.resolve(scriptsFolder, scriptName);
@@ -63,13 +67,15 @@ function setupScriptsForExecution(scriptsFolder, isMac) {
 }
 
 function getWinScript(enable, scriptsFolder) {
-    const batchScriptFilePath = path.resolve(scriptsFolder, "win32.bat");
+    let scriptName = isInternalBuild ? "internal_win32.bat" : "win32.bat";
+    const batchScriptFilePath = path.resolve(scriptsFolder, scriptName);
     const winScript = `powershell.exe -command "Start-Process -FilePath '${batchScriptFilePath}' -ArgumentList '${enable}' -Verb runas -Wait"`;
     return winScript;
 }
 
 function getMacScript(enable) {
-    const uxpScript = `sh mac.sh ${enable}`;
+    let scriptName = isInternalBuild ? "internal_mac.sh" : "mac.sh";
+    const uxpScript = `sh ${scriptName} ${enable}`;
     const wrapUxpScript = `"${uxpScript}"`;
 
     const osaScript = `osascript -e 'do shell script ${wrapUxpScript} with administrator privileges'`;
@@ -119,7 +125,8 @@ function isUxpDevToolsEnabled() {
         if (fs.existsSync(configFilePath)) {
             const contents = fs.readFileSync(configFilePath, "utf8");
             const config = JSON.parse(contents);
-            return config.developer === true;
+
+            return !isInternalBuild ? config.developer === true : (config.developer === true) && (config.hostAppPluginWorkspace === true);
         }
     // eslint-disable-next-line no-empty
     }

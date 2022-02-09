@@ -1,6 +1,7 @@
 {
   "name": "uxp-developer-tools",
-  "version": "1.2.0",
+  "version": "1.5.1",
+  "private": true,
   "workspaces": {
     "packages": [
       "packages/*",
@@ -9,13 +10,14 @@
     "nohoist": []
   },
   "scripts": {
-    "test": "nyc --reporter=json --reporter=html jest --runInBand --coverage",
     "lint": "eslint --ext \".js,.js6,.jsx,.ts,.tsx\"  ./",
     "lint-fix": "eslint --ext \".js,.js6,.jsx,.ts,.tsx\"  ./ --fix",
     "postinstall": "node scripts/installScript.js",
     "cleanup": "node scripts/cleanup.js"
   },
-  "cpu": ["!arm64"],
+  "cpu": [
+    "!arm64"
+  ],
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
@@ -27,6 +29,7 @@
     "@babel/preset-env": "^7.11.5",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
+    "@babel/core": "^7.10.4",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
@@ -39,9 +42,14 @@
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.10.4",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/plugin-transform-react-jsx": "^7.12.12",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/runtime": "^7.11.2",
-    "@jest-runner/electron": "^3.0.0",
-    "babel-polyfill": "^6.26.0"
+    "babel-plugin-istanbul": "^6.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0"
+  },
+  "engines": {
+    "node": ">=12.19.0"
   }
 }
