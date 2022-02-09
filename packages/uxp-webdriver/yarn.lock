@@ -1625,10 +1625,7 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@torq-native/cli@0.3.1-build.70":
-  version "0.3.1-build.70"
-  resolved "https://artifactory.corp.adobe.com:443/artifactory/api/npm/npm-torq-release/@torq-native/cli/-/@torq-native/cli-0.3.1-build.70.tgz#274eebf044b94afe93fe976c24f438f6b81818ad"
-  integrity sha1-J07r8ES5Sv6T/pdsJPQ49rgYGK0=
+
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.9"

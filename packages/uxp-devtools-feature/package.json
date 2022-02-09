@@ -21,8 +21,5 @@
     "author": "Adobe Inc",
     "license": "Apache-2.0",
     "dependencies": {
-    },
-    "publishConfig": {
-      "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-torq-release-local/"
     }
 }
