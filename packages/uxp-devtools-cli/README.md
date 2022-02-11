@@ -35,6 +35,8 @@
 
 ## Installation
 
+#### NOTE: Install via package manager(npm)is not supported right now. Please follow the manual instructions provided below for install 
+
 ### Manual installation
 
 - Note that on Windows you need to run these commands in `PowerShell` or `Command Prompt`.
