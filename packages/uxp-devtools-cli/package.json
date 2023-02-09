@@ -1,6 +1,6 @@
 {
   "name": "@adobe-fixed-uxp/uxp-devtools-cli",
-  "version": "1.5.2",
+  "version": "1.5.8",
   "description": "Command line interface for rapid UXP plugin development",
   "main": "src/uxp.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "@adobe/uxp-template-ps-react-typescript": "^1.0.0",
     "@adobe/uxp-template-ps-starter": "^1.0.0",
     "@adobe/uxp-template-xd-starter": "^1.0.0",
+    "app-path": "^3.3.0",
     "chalk": "^3.0.0",
     "cli-table3": "^0.6.0",
     "prompts": "^2.3.2",

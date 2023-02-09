@@ -13,7 +13,7 @@ const path = require("path");
 const { execSync } = require("child_process");
 
 function generateDevtoolsAppPacakge() {
-    let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-inspect-frontend/package.json");
+    let uxpDevtoolAppDir =  require.resolve("@adobe-fixed-uxp/uxp-inspect-frontend/package.json");
     uxpDevtoolAppDir = path.dirname(uxpDevtoolAppDir);
 
     execSync("yarn package", {
