@@ -1,3 +1,9 @@
+## This repo contains edits to make the `uxp` CLI command usable.
+
+```bash
+npm i -g uxp-devtools-cli-fixed
+```
+
 # Overview
 
 UXP Devtools is a standard tool for rapid Adobe UXP plugin development. UXP Devtools provides the ability to do all of the following:
