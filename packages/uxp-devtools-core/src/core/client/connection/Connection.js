@@ -55,6 +55,7 @@ class Connection extends EventEmitter {
     }
 
     onError(evt) {
+        console.error(evt)
         UxpLogger.error(`Websocket error ${evt}`);
         this.emit("error", evt);
     }

@@ -12,12 +12,8 @@
   "scripts": {
     "lint": "eslint --ext \".js,.js6,.jsx,.ts,.tsx\"  ./",
     "lint-fix": "eslint --ext \".js,.js6,.jsx,.ts,.tsx\"  ./ --fix",
-    "postinstall": "node scripts/installScript.js",
     "cleanup": "node scripts/cleanup.js"
   },
-  "cpu": [
-    "!arm64"
-  ],
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"

@@ -44,8 +44,8 @@
   },
   "devDependencies": {
     "tar": "^6.0.1",
-    "electron": "11.2.0",
-    "electron-builder": "22.10.5",
+    "electron": "^23.0.0",
+    "electron-builder": "^23.6.0",
     "rimraf": "^3.0.2"
   },
   "dependencies": {

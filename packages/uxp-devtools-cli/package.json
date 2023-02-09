@@ -1,13 +1,11 @@
 {
-  "name": "@adobe/uxp-devtools-cli",
+  "name": "uxp-devtools-cli-fixed",
   "version": "1.5.1",
   "description": "Command line interface for rapid UXP plugin development",
   "main": "src/uxp.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "uxp": "src/uxp.js",
-    "postinstall": "node scripts/setupInspectApp.js"
-
+    "uxp": "src/uxp.js"
   },
   "bin": {
     "uxp": "src/uxp.js"
