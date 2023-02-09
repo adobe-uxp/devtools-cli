@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/uxp-devtools-core",
+  "name": "@adobe-fixed-uxp/uxp-devtools-core",
   "version": "1.5.0",
   "description": "UXP Devtools Core Module",
   "main": "src/index.js",
@@ -21,7 +21,7 @@
   "author": "Adobe Inc",
   "license": "Apache-2.0",
   "dependencies": {
-    "@adobe/uxp-devtools-helper": "^1.5.0",
+    "@adobe-fixed-uxp/uxp-devtools-helper": "^1.5.0",
     "chalk": "^3.0.0",
     "chokidar": "^3.4.2",
     "express": "^4.17.1",
@@ -35,6 +35,6 @@
     "shell-exec": "^1.0.2"
   },
   "devDependencies": {
-    "@adobe/uxp_web_driver": "^2.2.1"
+    "@adobe-fixed-uxp/uxp_web_driver": "^2.2.1"
   }
 }

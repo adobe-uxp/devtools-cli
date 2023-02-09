@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/uxp-devtools-helper",
+  "name": "@adobe-fixed-uxp/uxp-devtools-helper",
   "version": "1.5.0",
   "description": "Adobe Devtools helper package used by uxp cli",
   "main": "src/DevToolsHelper.js",
@@ -20,7 +20,7 @@
   "dependencies": {
     "fs-extra": "^9.0.0",
     "node-gyp-build": "^4.2.3",
-    "@adobe/uxp-devtools-feature": "^1.0.0",
+    "@adobe-fixed-uxp/uxp-devtools-feature": "^1.0.0",
     "tar": "^6.0.1"
   }
 }

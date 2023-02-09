@@ -15,7 +15,7 @@
 const path = require("path");
 const fs = require("fs");
 const { exec } = require("child_process");
-const { FeatureFlag } = require("@adobe/uxp-devtools-feature");
+const { FeatureFlag } = require("@adobe-fixed-uxp/uxp-devtools-feature");
 
 const isInternalBuild = FeatureFlag.isFeatureEnabled("internalPluginWorkspace");
 

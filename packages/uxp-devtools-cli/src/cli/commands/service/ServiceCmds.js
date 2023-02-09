@@ -11,7 +11,7 @@
  *
  */
 
-const { CoreHelpers } = require("@adobe/uxp-devtools-core");
+const { CoreHelpers } = require("@adobe-fixed-uxp/uxp-devtools-core");
 
 function handleServiceStartCommand(argv) {
     // start the service at the given port.

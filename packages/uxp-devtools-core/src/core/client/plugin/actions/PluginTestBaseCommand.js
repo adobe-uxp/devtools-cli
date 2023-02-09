@@ -47,7 +47,7 @@ class PluginTestBaseCommand extends PluginBaseCommand {
         const uxpDriver_logFilePath = path.resolve(logPath , logFileName).toString();
         const uxpDriver_logFile = await fsPromises.open(uxpDriver_logFilePath,  "w+");
 
-        let uxpDevtoolCoreDir =  require.resolve("@adobe/uxp-devtools-core/package.json");
+        let uxpDevtoolCoreDir =  require.resolve("@adobe-fixed-uxp/uxp-devtools-core/package.json");
         uxpDevtoolCoreDir = path.dirname(uxpDevtoolCoreDir);
         process.chdir(uxpDevtoolCoreDir);
 

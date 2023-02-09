@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/uxp_web_driver",
+  "name": "@adobe-fixed-uxp/uxp_web_driver",
   "version": "2.2.1",
   "main": "uxp_driver_export.js",
   "scripts": {

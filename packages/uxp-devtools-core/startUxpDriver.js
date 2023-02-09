@@ -12,7 +12,7 @@
  *
  */
 
-const { startUXPDriver } = require("@adobe/uxp_web_driver");
+const { startUXPDriver } = require("@adobe-fixed-uxp/uxp_web_driver");
 function startTestService() {
     try {
         const UXPDriverPort = process.argv[2];

@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/uxp-wdio-automation-template",
+  "name": "@adobe-fixed-uxp/uxp-wdio-automation-template",
   "version": "1.0.0",
   "description": "A starter automation project created using WebDriverIO framework",
   "main": "index.js",

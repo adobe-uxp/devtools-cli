@@ -14,7 +14,7 @@
 const path = require("path");
 const fs = require("fs-extra");
 const _ = require("lodash");
-const { DevToolsError } = require("@adobe/uxp-devtools-core");
+const { DevToolsError } = require("@adobe-fixed-uxp/uxp-devtools-core");
 
 // Check for file conflicts.
 function getConflictingFilesList(pluginDir, uxpPackageDir) {

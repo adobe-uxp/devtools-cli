@@ -12,7 +12,7 @@
  */
 
 const path = require("path");
-const { DevToolsError } = require("@adobe/uxp-devtools-core");
+const { DevToolsError } = require("@adobe-fixed-uxp/uxp-devtools-core");
 
 const loadOptions = {
     manifest: {

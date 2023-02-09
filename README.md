@@ -1,7 +1,7 @@
 ## This repo contains edits to make the `uxp` CLI command usable.
 
 ```bash
-npm i -g uxp-devtools-cli-fixed
+npm i -g @adobe-fixed-uxp/uxp-devtools-cli
 ```
 
 # Overview

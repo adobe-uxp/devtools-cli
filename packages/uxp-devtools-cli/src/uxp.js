@@ -13,7 +13,7 @@
  */
 /* eslint-disable global-require */
 const Tool = require("./cli/utils/Tool");
-const { UDTApplication } = require("@adobe/uxp-devtools-core");
+const { UDTApplication } = require("@adobe-fixed-uxp/uxp-devtools-core");
 
 const commands = [
     require("./cli/commands/apps/index"),

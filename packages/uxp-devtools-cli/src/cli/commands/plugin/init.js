@@ -14,7 +14,7 @@
 const chalk = require("chalk");
 const BasicInitWorkflow = require("./init/BasicInitWorkflow");
 const { initWithBundledPluginTemplate } = require("./init/TemplateBasedInitWorkflow");
-const { DevToolsError } = require("@adobe/uxp-devtools-core");
+const { DevToolsError } = require("@adobe-fixed-uxp/uxp-devtools-core");
 
 const templateHelp = `Specify a template for the plugin.
                     A custom ${chalk.cyan("--template")} can be one of:

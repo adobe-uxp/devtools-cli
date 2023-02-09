@@ -12,7 +12,7 @@
  */
 
 const Table = require("cli-table3");
-const { CoreHelpers } = require("@adobe/uxp-devtools-core");
+const { CoreHelpers } = require("@adobe-fixed-uxp/uxp-devtools-core");
 
 function handleAppsListCommand() {
     this.app.logLevel = CoreHelpers.LoggerLevel.WARN;
