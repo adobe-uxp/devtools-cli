@@ -1,11 +1,8 @@
 {
   "name": "@adobe-fixed-uxp/uxp-devtools-helper",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Adobe Devtools helper package used by uxp cli",
   "main": "src/DevToolsHelper.js",
-  "scripts": {
-    "install": "node scripts/devtools_setup.js"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:adobe-uxp/devtools-cli.git",

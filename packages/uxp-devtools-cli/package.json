@@ -1,6 +1,6 @@
 {
   "name": "@adobe-fixed-uxp/uxp-devtools-cli",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "Command line interface for rapid UXP plugin development",
   "main": "src/uxp.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "author": "Adobe Inc",
   "license": "Apache-2.0",
   "dependencies": {
-    "@adobe-fixed-uxp/uxp-devtools-core": "^1.5.0",
+    "@adobe-fixed-uxp/uxp-devtools-core": "^1.5.1",
     "@adobe-fixed-uxp/uxp-wdio-automation-template": "^1.0.0",
     "@adobe/uxp-template-default-starter": "^1.0.0",
     "@adobe/uxp-template-default-starter-ps": "^1.0.0",
@@ -41,6 +41,9 @@
     "yargs": "^15.3.1"
   },
   "devDependencies": {
+    "@adobe-fixed-uxp/uxp-inspect-frontend": "^1.5.1"
+  },
+  "optionalDependencies": {
     "@adobe-fixed-uxp/uxp-inspect-frontend": "^1.5.1"
   }
 }

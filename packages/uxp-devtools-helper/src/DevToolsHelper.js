@@ -114,6 +114,7 @@ class DevToolsHelper {
                 prom.resolve(payload.port);
             }
             catch (err) {
+                console.error(err)
                 prom.reject(new Error(errorMsg));
             }
             prom.handled = true;
