@@ -47,11 +47,14 @@ class Server extends EventEmitter {
         this._io = new WebSocket.Server({ server: this._httpServer });
         this._io.on("connection", this._handleSocketConnection.bind(this));
 
+        console.log("LISTENING")
+
         // Make sure to listen for error messages on _io to avoid crashes when some error
         // is dispatched and we don't have a listener.
         this._io.on("error", (err) => {
             if (err.code !== "EADDRINUSE") {
-                UxpLogger.error("WebSocket error:", err);
+                UxpLogger.error("WebSocket error:", err.name, err.message, err);
+                console.error(err);
             }
         });
     }
@@ -65,6 +68,7 @@ class Server extends EventEmitter {
     }
 
     _getClientClassForUrl(url) {
+        console.log("HI", url)
         if (url === "/socket/cli") {
             return require("./clients/UxpCliClient");
         }
@@ -78,6 +82,7 @@ class Server extends EventEmitter {
     }
 
     _handleSocketConnection(socket, req) {
+        console.log("SOCKET")
         // WS changed the way it sends the initial upgrade request.
         // Newer versions pass it dirrectly to the connection event handler.
         const url = req ? req.url : socket.upgradeReq.url;

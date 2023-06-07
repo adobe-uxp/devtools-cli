@@ -14,7 +14,7 @@
 /* eslint-disable func-names */
 /* eslint-disable global-require */
 
-const { UDTApplication } = require("@adobe/uxp-devtools-core");
+const { UDTApplication } = require("@adobe-fixed-uxp/uxp-devtools-core");
 
 class Tool {
     constructor(modules) {

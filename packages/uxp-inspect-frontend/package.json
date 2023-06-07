@@ -1,5 +1,5 @@
 {
-  "name": "@adobe/uxp-inspect-frontend",
+  "name": "@adobe-fixed-uxp/uxp-inspect-frontend",
   "productName": "Adobe UXP Developer Tool",
   "appMenuName": "Adobe UXP Developer Tool",
   "version": "1.5.1",
@@ -13,8 +13,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "cleanup": "rimraf dist/",
-    "package": "yarn cleanup && electron-builder --dir",
-    "package-arm64": "export build_arch=arm64 && yarn cleanup && electron-builder --dir --arm64",
+    "package": "electron-builder --dir --x64",
+    "package-arm64": "electron-builder --dir --arm64",
     "postinstall": "node scripts/setup.js"
   },
   "build": {
@@ -44,8 +44,8 @@
   },
   "devDependencies": {
     "tar": "^6.0.1",
-    "electron": "11.2.0",
-    "electron-builder": "22.10.5",
+    "electron": "^23.0.0",
+    "electron-builder": "^23.6.0",
     "rimraf": "^3.0.2"
   },
   "dependencies": {

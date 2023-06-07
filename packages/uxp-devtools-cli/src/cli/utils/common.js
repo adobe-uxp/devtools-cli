@@ -14,7 +14,7 @@
 
 function loadPluginSessionFromUxpRc() {
     // eslint-disable-next-line global-require
-    const { CoreHelpers } = require("@adobe/uxp-devtools-core");
+    const { CoreHelpers } = require("@adobe-fixed-uxp/uxp-devtools-core");
     return CoreHelpers.PluginSession.createFromRcFile();
 }
 

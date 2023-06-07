@@ -18,7 +18,7 @@ function handlePluginTestCommand(args) {
     const manifestRelPath = args.manifest ? args.manifest : "manifest.json";
     const manifest = path.resolve(manifestRelPath);
     const apps = args.appId ? args.appId.split(" ") : [];
-    const packageName =  `@adobe/uxp-wdio-automation-template`;
+    const packageName =  `@adobe-fixed-uxp/uxp-wdio-automation-template`;
     const driverPort = args.port;
     const params = {
         manifest,

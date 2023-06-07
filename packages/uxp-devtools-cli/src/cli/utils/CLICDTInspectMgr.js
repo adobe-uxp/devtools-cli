@@ -13,24 +13,31 @@ governing permissions and limitations under the License.
 const path = require("path");
 const child_process = require("child_process");
 const process = require("process");
+const appPath = require("app-path");
 const { createDeferredPromise } = require("./common");
 
 function getDevtoolsAppExecutablePath() {
-    let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-inspect-frontend/package.json");
-    uxpDevtoolAppDir = path.dirname(uxpDevtoolAppDir);
-
     const productName = "Adobe UXP Developer Tool";
-    const baseFolder = path.resolve(uxpDevtoolAppDir, "dist");
+    try {
+        let uxpDevtoolAppDir =  require.resolve("@adobe-fixed-uxp/uxp-inspect-frontend/package.json");
+        uxpDevtoolAppDir = path.dirname(uxpDevtoolAppDir);
 
-    let executablePath = "";
-    if (process.platform === "darwin") {
-        executablePath = `${baseFolder}/mac/${productName}.app/Contents/MacOS/${productName}`;
-    }
-    else if (process.platform === "win32") {
-        executablePath = `${baseFolder}/win-unpacked/${productName}.exe`;
-    }
+        const baseFolder = path.resolve(uxpDevtoolAppDir, "dist");
 
-    return executablePath;
+        let executablePath = "";
+        if (process.platform === "darwin") {
+            executablePath = `${baseFolder}/mac/${productName}.app/Contents/MacOS/${productName}`;
+        }
+        else if (process.platform === "win32") {
+            executablePath = `${baseFolder}/win-unpacked/${productName}.exe`;
+        }
+
+        return executablePath;
+    } catch (e) {
+        const p = appPath.sync(productName);
+        if (!p) throw new Error(`${productName} not found`);
+        return `${p}/Contents/MacOS/${productName}`;
+    }
 }
 
 function wrapArg(name, arg) {

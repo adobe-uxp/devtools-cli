@@ -11,7 +11,7 @@
  *
  */
 /* eslint-disable class-methods-use-this */
-const DevToolsHelper = require("@adobe/uxp-devtools-helper");
+const DevToolsHelper = require("@adobe-fixed-uxp/uxp-devtools-helper");
 
 class DevToolsMgr {
     constructor(isServer) {
