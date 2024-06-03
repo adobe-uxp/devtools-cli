@@ -15,9 +15,6 @@
     "postinstall": "node scripts/installScript.js",
     "cleanup": "node scripts/cleanup.js"
   },
-  "cpu": [
-    "!arm64"
-  ],
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"

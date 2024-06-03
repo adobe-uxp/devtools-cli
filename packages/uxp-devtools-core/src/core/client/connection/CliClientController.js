@@ -102,7 +102,7 @@ class CliClientController {
     _connectToServiceAtPort(port) {
         this._createConnection();
         this._port = port;
-        const url = `ws://localhost:${port}/socket/cli`;
+        const url = `ws://127.0.0.1:${port}/socket/cli`;
         this._callerPromise = createDeferredPromise();
         this._connection.connect(this, url);
         return this._callerPromise.promise;

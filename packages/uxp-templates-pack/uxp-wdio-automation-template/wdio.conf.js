@@ -26,7 +26,7 @@ exports.config = {
         "goog:chromeOptions": {
             args: [ `--adobe-uxp-app-id=${uxpAppId}`,
                 `--adobe-uxp-plugin-id=${uxpPluginId}` ],
-            debuggerAddress: `http://localhost:${servicePort}`,
+            debuggerAddress: `http://127.0.0.1:${servicePort}`,
         }
     } ],
     hostname: "localhost",
