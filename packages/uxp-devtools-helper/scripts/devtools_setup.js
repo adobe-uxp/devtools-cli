@@ -36,10 +36,8 @@ function setupTargetFolder() {
 function setupDevtoolsNativeAddOn() {
     console.log("Setting up Adobe devTools node native add-on library... ");
     const arch = os.arch();     
-    console.log(`Arch is ${arch}`);
     const targetFolder = setupTargetFolder();
     const fileName = arch !== "arm64" ? `DevtoolsHelper-v1.1.0-node-${process.platform}.tar.gz` : `DevtoolsHelper-v1.1.0-node-${process.platform}-arm64.tar.gz`;
-    console.log(`FileName is ${fileName}`);
     const devToolsTarPath = path.resolve(__dirname, `./native-libs/${fileName}`);
     const prom = extractdevToolsTarLib(devToolsTarPath, targetFolder);
     prom.then(() => {

@@ -18,12 +18,12 @@ function generateDevtoolsAppPacakge() {
     uxpDevtoolAppDir = path.dirname(uxpDevtoolAppDir);
 
     if(os.arch() === "arm64") {
-        execSync("npm run package-arm64", {
+        execSync("yarn package-arm64", {
             cwd: uxpDevtoolAppDir,
             stdio: [ "inherit", "inherit", "inherit" ]
         });
     }else {
-        execSync("npm run package", {
+        execSync("yarn package", {
             cwd: uxpDevtoolAppDir,
             stdio: [ "inherit", "inherit", "inherit" ]
         });
