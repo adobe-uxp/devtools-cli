@@ -1,13 +1,12 @@
 {
   "name": "@adobe/uxp-devtools-cli",
-  "version": "1.5.1",
+  "version": "1.6.4",
   "description": "Command line interface for rapid UXP plugin development",
   "main": "src/uxp.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "uxp": "src/uxp.js",
     "postinstall": "node scripts/setupInspectApp.js"
-
   },
   "bin": {
     "uxp": "src/uxp.js"
@@ -26,16 +25,16 @@
   "author": "Adobe Inc",
   "license": "Apache-2.0",
   "dependencies": {
-    "@adobe/uxp-devtools-core": "^1.5.0",
-    "@adobe/uxp-inspect-frontend": "^1.5.1",
-    "@adobe/uxp-template-ps-starter": "^1.0.0",
-    "@adobe/uxp-template-default-starter": "^1.0.0",
-    "@adobe/uxp-template-default-starter-xd": "^1.0.0",
-    "@adobe/uxp-template-default-starter-ps": "^1.0.0",
-    "@adobe/uxp-template-ps-react-starter": "^1.0.0",
-    "@adobe/uxp-template-ps-react-typescript": "^1.0.0",
-    "@adobe/uxp-template-xd-starter": "^1.0.0",
-    "@adobe/uxp-wdio-automation-template": "^1.0.0",
+    "@adobe/uxp-devtools-core": "1.6.0",
+    "@adobe/uxp-inspect-frontend": "1.6.1",
+    "@adobe/uxp-template-default-starter": "1.0.0",
+    "@adobe/uxp-template-default-starter-ps": "1.0.0",
+    "@adobe/uxp-template-default-starter-xd": "1.0.0",
+    "@adobe/uxp-template-ps-react-starter": "1.0.0",
+    "@adobe/uxp-template-ps-react-typescript": "1.0.0",
+    "@adobe/uxp-template-ps-starter": "1.0.0",
+    "@adobe/uxp-template-xd-starter": "1.0.0",
+    "@adobe/uxp-wdio-automation-template": "1.0.0",
     "@adobe/uxp_web_driver": "2.2.1",
     "chalk": "^3.0.0",
     "cli-table3": "^0.6.0",

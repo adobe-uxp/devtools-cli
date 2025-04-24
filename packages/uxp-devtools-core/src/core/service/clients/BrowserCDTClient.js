@@ -30,7 +30,7 @@ class BrowserCDTClient extends Client {
 
     static create(server, socket, url) {
         // url is of form  "/socket/browser_cdt/?uxp-app-id=PS" hence added a baseURL
-        let cliUrl = new URL(url, "http://localhost:14001");
+        let cliUrl = new URL(url, "http://127.0.0.1:14001");
         const searchParams = cliUrl.searchParams;
         const uxpAppID = searchParams.get("adobe-uxp-app-id");
         let browserCDTClient =  new BrowserCDTClient(server, socket, uxpAppID);

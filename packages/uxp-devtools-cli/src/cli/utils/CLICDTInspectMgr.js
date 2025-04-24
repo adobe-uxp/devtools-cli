@@ -14,6 +14,7 @@ const path = require("path");
 const child_process = require("child_process");
 const process = require("process");
 const { createDeferredPromise } = require("./common");
+const os = require('os');
 
 function getDevtoolsAppExecutablePath() {
     let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-inspect-frontend/package.json");
@@ -23,8 +24,9 @@ function getDevtoolsAppExecutablePath() {
     const baseFolder = path.resolve(uxpDevtoolAppDir, "dist");
 
     let executablePath = "";
+    const arch = os.arch();
     if (process.platform === "darwin") {
-        executablePath = `${baseFolder}/mac/${productName}.app/Contents/MacOS/${productName}`;
+        executablePath = arch === 'arm64'?`${baseFolder}/mac-arm64/${productName}.app/Contents/MacOS/${productName}`:`${baseFolder}/mac/${productName}.app/Contents/MacOS/${productName}`;
     }
     else if (process.platform === "win32") {
         executablePath = `${baseFolder}/win-unpacked/${productName}.exe`;

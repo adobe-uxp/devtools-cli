@@ -10,16 +10,24 @@ governing permissions and limitations under the License.
 */
 
 const path = require("path");
+const os = require("os");
 const { execSync } = require("child_process");
 
 function generateDevtoolsAppPacakge() {
     let uxpDevtoolAppDir =  require.resolve("@adobe/uxp-inspect-frontend/package.json");
     uxpDevtoolAppDir = path.dirname(uxpDevtoolAppDir);
 
-    execSync("yarn package", {
-        cwd: uxpDevtoolAppDir,
-        stdio: [ "inherit", "inherit", "inherit" ]
-    });
+    if(os.arch() === "arm64") {
+        execSync("yarn package-arm64", {
+            cwd: uxpDevtoolAppDir,
+            stdio: [ "inherit", "inherit", "inherit" ]
+        });
+    }else {
+        execSync("yarn package", {
+            cwd: uxpDevtoolAppDir,
+            stdio: [ "inherit", "inherit", "inherit" ]
+        });
+    }
 }
 
 generateDevtoolsAppPacakge();
