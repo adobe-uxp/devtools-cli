@@ -11,3 +11,7 @@ build.js
 scripts/adobe_internal/commands/demoAppSetup.js
 scripts/adobe_internal/demoAppConfig.js
 scripts/adobe_internal/npmrcUtil.js
+.turbo/
+*.tsbuildinfo
+*.log
+*.tgz

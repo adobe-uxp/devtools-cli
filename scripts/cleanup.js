@@ -11,15 +11,15 @@
  *
  */
 
-const fs = require("fs");
-const { getUxpGlobalLocation } = require("./common");
+import fs from 'node:fs';
+import { getUxpGlobalLocation } from './common.js';
 
 function cleanUpUxpSymLink() {
-    const { uxpBinPath } = getUxpGlobalLocation();
-    if (fs.existsSync(uxpBinPath)) {
-        console.log(`Deleting the sym-link to uxp main script file ${uxpBinPath}`);
-        fs.unlinkSync(uxpBinPath);
-    }
+  const { uxpBinPath } = getUxpGlobalLocation();
+  if (fs.existsSync(uxpBinPath)) {
+    console.log(`Deleting the sym-link to uxp main script file ${uxpBinPath}`);
+    fs.unlinkSync(uxpBinPath);
+  }
 }
 
 cleanUpUxpSymLink();

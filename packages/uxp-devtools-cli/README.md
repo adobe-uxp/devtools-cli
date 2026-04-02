@@ -35,7 +35,7 @@
 
 ## Installation
 
-#### NOTE: Install via package manager(npm)is not supported right now. Please follow the manual instructions provided below for install 
+#### NOTE: Install via package manager(npm)is not supported right now. Please follow the manual instructions provided below for install
 
 ### Manual installation
 
@@ -172,15 +172,15 @@ You can use the new terminal instance to run other project commands for loading/
 You can initialize or bootstrap a directory as a UXP plugin by running these commands:
 
     $ uxp plugin init
-    
+
       - On prompt provide plugin details such as plugin name, plugin version, id
       - Select host app (based on host app, default template for corresponding host app will be selected)
       - If both host apps are selected(XD,PS), common template for host apps is selected
-    
+
     On initialisation, plugin directory structure is created in current working directory which comprises of manifest.json and plugin src files
-    
+
  User template:
- 
+
     $ uxp plugin init [--template <template-source>]
 
     --template: The template source for the plugin. If a template is not provided, the CLI will prompt you to enter plugin details.
@@ -226,7 +226,6 @@ Limit the load to only one version:
 **--breakOnStart**
 Blocks the plugin until a debugger attaches.If specified, attach is assumed, and a debugger will immediately be spawned.Defaults to false.
 
-
 ### Reloading a plugin
 
 _After you have loaded your plugin once with `uxp plugin load`_, you can reload the plugin into the host application using this command:
@@ -255,10 +254,9 @@ _After you have loaded your plugin once with `uxp plugin load`_, you can debug t
 #### Options
 
 **--apps**
-If your plugin is loaded in multiple apps, you can use this option to choose the app in which you want to limit the debugging to. 
+If your plugin is loaded in multiple apps, you can use this option to choose the app in which you want to limit the debugging to.
 By default you will able to debug all connected apps specified in your `manifest.json`.
 
-    
 ### Unloading a plugin from one or more host apps
 
 You can unload a plugin from a host app like this:
@@ -305,46 +303,45 @@ For eg, to limit the watch and reload to only one version:
 _After you have loaded your plugin once with `uxp plugin load`_, you can view plugin logs using this command.
 This command launches a plugin console window where logs can be viewed
 
-    $ uxp plugin logs 
-
+    $ uxp plugin logs
 
 ### Plugin test
-You can now execute execute plugin's functional tests in UXP CLI v1.3 and above. This support is available for Adobe Applications integrated with **UXP 5.0** and above. The following CLI commands can be used to get you started with writing and executing tests for your plugin. 
+You can now execute execute plugin's functional tests in UXP CLI v1.3 and above. This support is available for Adobe Applications integrated with **UXP 5.0** and above. The following CLI commands can be used to get you started with writing and executing tests for your plugin.
 
-#### Plugin test setup 
+#### Plugin test setup
 
 The intial automation setup can be done using this command:
 
     $ uxp plugin test --setup
 
-The default project uses [WebDriverIO](https://webdriver.io/docs/gettingstarted) framework  
+The default project uses [WebDriverIO](https://webdriver.io/docs/gettingstarted) framework
 
-* This command will create a folder named **"uxp-plugin-tests"** and install the required dependencies to execute the testsuite. 
+* This command will create a folder named **"uxp-plugin-tests"** and install the required dependencies to execute the testsuite.
 
 * You can automate your plugin's UI by adding more tests in the folder location **"uxp-plugin-tests"**.
 (sub-folders are configurable. Eg. [specs](../uxp-templates-pack/uxp-wdio-automation-template/wdio.conf.js) )
 
 ##### Sample Scripts
 
-You can refer sample scripts available with the plugin init templates 
+You can refer sample scripts available with the plugin init templates
 
 * uxp-template-ps-starter : [PopulateButtonTest](../uxp-templates-pack/uxp-template-ps-starter/template/uxp-plugin-tests/sample-tests/specs/PopulateButtonTest.js)
 * uxp-template-default-starter-ps : [ChangeColorTest](../uxp-templates-pack/uxp-template-default-starter-ps/template/uxp-plugin-tests/sample-tests/specs/ChangeColorTest.js)
 
-#### Execute test 
+#### Execute test
 
-_After you have loaded the plugin using `uxp plugin load`_, you can execute the plugin tests with: 
+_After you have loaded the plugin using `uxp plugin load`_, you can execute the plugin tests with:
 
     $ uxp plugin test [--port <testService Port>] [--appId <appId>]
-    
+
 Once tests are executed, the test reports can be seen on the console. Note: The test reports, depend on the reporting module that you choose with the automation framework(WDIO).
 
-Note: The plugin should be loaded to execute the tests. Currently, on `uxp plugin load`, Ps loads the plugin UI and XD   adds to the plugin panel. To execute tests on XD open the plugin manually and then run the command. 
+Note: The plugin should be loaded to execute the tests. Currently, on `uxp plugin load`, Ps loads the plugin UI and XD   adds to the plugin panel. To execute tests on XD open the plugin manually and then run the command.
 
 #### For Advanced Users
 
  Client can choose any javascript automation framework of their choice.
- 
+
 * Create a folder **uxp-plugin-tests** inside plugin folder
 
     $ mkdir uxp-plugin-tests
@@ -356,24 +353,23 @@ Note: The plugin should be loaded to execute the tests. Currently, on `uxp plugi
 
 * The command to execute the testSuite should be mentioned at "uxp-plugin-tests" in [package.json](../uxp-templates-pack/uxp-wdio-automation-template/package.json) of the automation project.
 
-
 ##### Options
 
 **--port**
 Port at which the UXP testService starts. Default value: 4797
 
-    $ uxp plugin test --port 4789 
+    $ uxp plugin test --port 4789
 
 **--appId**
 Single App ID into which the plugin's test should be executed.The supported app IDs can be retrieved using `uxp apps list`. The default action is to execute test on the first host app specified in the plugin's manifest.
 
     $ uxp plugin test --appId XD
- 
+
 ### Plugin package
 
 _After you have created your plugin , you can package your plugin using this command.
 
-    $ uxp plugin package 
+    $ uxp plugin package
 
 #### options
 
@@ -390,7 +386,6 @@ A list of apps for which you want to package the plugin. If you don't provide th
 Output directory path where plugin will be packaged. Defaults to current working directory.
 
     $uxp plugin package --outputPath <path>
-
 
 # Contributing
 

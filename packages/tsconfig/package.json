@@ -1,0 +1,20 @@
+{
+  "name": "@adobe-fixed-uxp/tsconfig",
+  "type": "module",
+  "version": "1.1.2",
+  "private": true,
+  "description": "Shared TypeScript configuration for UXP devtools packages",
+  "author": "Adobe Inc",
+  "license": "Apache-2.0",
+  "keywords": [
+    "tsconfig",
+    "typescript"
+  ],
+  "exports": {
+    "./tsconfig.base.json": "./tsconfig.base.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "tsconfig.base.json"
+  ]
+}

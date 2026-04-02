@@ -1,11 +1,10 @@
 {
-  "name": "@adobe/uxp-devtools-helper",
-  "version": "1.6.0",
+  "name": "@adobe-fixed-uxp/uxp-devtools-helper",
+  "type": "module",
+  "version": "1.6.3",
   "description": "Adobe Devtools helper package used by uxp cli",
-  "main": "src/DevToolsHelper.js",
-  "scripts": {
-    "install": "node scripts/devtools_setup.js"
-  },
+  "author": "Adobe Inc",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:adobe-uxp/devtools-cli.git",
@@ -15,12 +14,42 @@
     "adobe",
     "uxp"
   ],
-  "author": "Adobe Inc",
-  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "types": "./src/DevToolsHelper.ts",
+      "import": "./src/DevToolsHelper.ts"
+    },
+    "./*": {
+      "types": "./src/*.ts",
+      "import": "./src/*.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/DevToolsHelper.d.ts",
+        "import": "./dist/DevToolsHelper.js"
+      },
+      "./*": {
+        "types": "./dist/*.d.ts",
+        "import": "./dist/*.js"
+      },
+      "./package.json": "./package.json"
+    }
+  },
+  "main": "src/DevToolsHelper.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "node scripts/devtools_setup.js"
+  },
   "dependencies": {
-    "fs-extra": "^9.0.0",
     "node-gyp-build": "^4.2.3",
-    "@adobe/uxp-devtools-feature": "^1.0.0",
-    "tar": "^6.0.1"
+    "tar": "^7.4.3"
+  },
+  "devDependencies": {
+    "@adobe-fixed-uxp/tsconfig": "workspace:*"
   }
 }

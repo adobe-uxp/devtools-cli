@@ -11,28 +11,27 @@
  *
  */
 
-const path = require("path");
-const { execSync } = require("child_process");
+import { execSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-function getYarnGlobalBinFolder() {
-    const binPath = execSync("yarn global bin");
-    return binPath.toString().trim();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export function getYarnGlobalBinFolder() {
+  const binPath = execSync('yarn global bin');
+  return binPath.toString().trim();
 }
 
-function getUxpGlobalLocation() {
-    const mainScriptFile = path.resolve(__dirname, "../packages/uxp-devtools-cli/src/uxp.js");
-    const yarnBinPath = getYarnGlobalBinFolder();
-    if (!yarnBinPath) {
-        throw new Error("Failed to install the cli scripts in yarn bin folder");
-    }
-    const uxpBinPath = path.resolve(yarnBinPath, "uxp");
-    return {
-        mainScriptFile,
-        uxpBinPath,
-    };
+export function getUxpGlobalLocation() {
+  const mainScriptFile = path.resolve(__dirname, '../packages/uxp-devtools-cli/src/uxp.js');
+  const yarnBinPath = getYarnGlobalBinFolder();
+  if (!yarnBinPath) {
+    throw new Error('Failed to install the cli scripts in yarn bin folder');
+  }
+  const uxpBinPath = path.resolve(yarnBinPath, 'uxp');
+  return {
+    mainScriptFile,
+    uxpBinPath,
+  };
 }
-
-module.exports = {
-    getUxpGlobalLocation,
-    getYarnGlobalBinFolder,
-};
